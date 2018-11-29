@@ -13,9 +13,20 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
-
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // if not set up, run code below to set up
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SetUpViewController")
+        self.present(nextViewController, animated:true, completion:nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // performSegue(withIdentifier: "goToSetup", sender: nil)
+
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
 
@@ -42,6 +53,7 @@ class MasterViewController: UITableViewController {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! NSDate

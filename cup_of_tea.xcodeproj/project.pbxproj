@@ -15,6 +15,7 @@
 		239C783C21AFB4A40033A51B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 239C783A21AFB4A40033A51B /* LaunchScreen.storyboard */; };
 		239C784721AFB4A40033A51B /* cup_of_teaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C784621AFB4A40033A51B /* cup_of_teaTests.swift */; };
 		239C785221AFB4A40033A51B /* cup_of_teaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C785121AFB4A40033A51B /* cup_of_teaUITests.swift */; };
+		239C786021AFBCF40033A51B /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C785F21AFBCF40033A51B /* SetUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		239C784D21AFB4A40033A51B /* cup_of_teaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cup_of_teaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		239C785121AFB4A40033A51B /* cup_of_teaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cup_of_teaUITests.swift; sourceTree = "<group>"; };
 		239C785321AFB4A40033A51B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		239C785F21AFBCF40033A51B /* SetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				239C783821AFB4A40033A51B /* Assets.xcassets */,
 				239C783A21AFB4A40033A51B /* LaunchScreen.storyboard */,
 				239C783D21AFB4A40033A51B /* Info.plist */,
+				239C785F21AFBCF40033A51B /* SetUpViewController.swift */,
 			);
 			path = cup_of_tea;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				239C786021AFBCF40033A51B /* SetUpViewController.swift in Sources */,
 				239C783421AFB4A30033A51B /* DetailViewController.swift in Sources */,
 				239C783221AFB4A30033A51B /* MasterViewController.swift in Sources */,
 				239C783021AFB4A30033A51B /* AppDelegate.swift in Sources */,
