@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>586041971859-9g7o739sjtfuovedii08qil2p07s12r7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.586041971859-9g7o739sjtfuovedii08qil2p07s12r7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBoIu_uTe4qRMDsXbxvYDLtWdf_qdgXlcQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>586041971859</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>uwgin.uw.edu.cup-of-tea</string>
+	<key>PROJECT_ID</key>
+	<string>cup-of-coffee-401b9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cup-of-coffee-401b9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:586041971859:ios:c73c350011f51a00</string>
+	<key>DATABASE_URL</key>
+	<string>https://cup-of-coffee-401b9.firebaseio.com</string>
+</dict>
+</plist>
