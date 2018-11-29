@@ -7,12 +7,33 @@
 //
 
 import UIKit
-//import Firebase
+import Firebase
+import FirebaseFirestore
+
 //import FirebaseCore
 class SetUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FirebaseApp.configure()
+        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+
+        db.collection("users").document("one").getDocument() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//                }
+                print(querySnapshot!.documentID)
+                print(querySnapshot!.data())
+            }
+        }
         
         
         // Do any additional setup after loading the view.

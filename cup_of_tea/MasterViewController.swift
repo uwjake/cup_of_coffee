@@ -15,7 +15,7 @@ class MasterViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         
-        // if not set up, run code below to set up
+        // if not set up, run code below to set up screens
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SetUpViewController")
         self.present(nextViewController, animated:true, completion:nil)

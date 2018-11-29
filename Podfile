@@ -8,7 +8,7 @@ use_frameworks!
   # Pods for cup_of_tea
 
     pod 'Firebase/Core'
-
+    pod 'Firebase/Firestore'
 
   target 'cup_of_teaTests' do
     inherit! :search_paths
