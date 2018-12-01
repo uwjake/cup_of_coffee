@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dho-lj-3LT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dho-lj-3LT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -135,6 +135,71 @@
             </objects>
             <point key="canvasLocation" x="-2154" y="1012"/>
         </scene>
+        <!--Get Started View Controller-->
+        <scene sceneID="VTC-YJ-SRD">
+            <objects>
+                <viewController storyboardIdentifier="GetStartedViewController" id="ufp-lF-C0Z" customClass="GetStartedViewController" customModule="cup_of_tea" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oxA-dy-8y9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpT-M1-PDd">
+                                <rect key="frame" x="87.5" y="477" width="200" height="60"/>
+                                <color key="backgroundColor" red="0.88337920979999995" green="0.58521807250000002" blue="0.34426981559999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3cs-M4-gOR"/>
+                                    <constraint firstAttribute="width" constant="200" id="9NV-pz-DL2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPressed:" destination="O07-vV-tcg" eventType="touchUpInside" id="ZUl-PP-HF4"/>
+                                    <segue destination="XYJ-9Y-eox" kind="show" id="WMi-Pg-Gqv"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffee_icon" translatesAutoresizingMaskIntoConstraints="NO" id="AFg-AH-v5v">
+                                <rect key="frame" x="62.5" y="120" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="SMO-aT-S45"/>
+                                    <constraint firstAttribute="width" constant="250" id="YuQ-dR-fdR"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Cup of Coffee" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ThP-kN-gds">
+                                <rect key="frame" x="67.5" y="350" width="240" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Uf8-fb-qti"/>
+                                    <constraint firstAttribute="height" constant="55" id="gMp-pC-vMF"/>
+                                </constraints>
+                                <color key="textColor" red="0.88337920979999995" green="0.58521807250000002" blue="0.34426981559999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AFg-AH-v5v" firstAttribute="top" secondItem="jil-n6-zf0" secondAttribute="top" constant="100" id="9SY-fw-26p"/>
+                            <constraint firstItem="ThP-kN-gds" firstAttribute="centerX" secondItem="oxA-dy-8y9" secondAttribute="centerX" id="Aed-cU-FDW"/>
+                            <constraint firstItem="ThP-kN-gds" firstAttribute="top" secondItem="jil-n6-zf0" secondAttribute="top" constant="330" id="HEO-Hm-ONt"/>
+                            <constraint firstItem="cpT-M1-PDd" firstAttribute="centerX" secondItem="oxA-dy-8y9" secondAttribute="centerX" id="ciV-IH-7Yg"/>
+                            <constraint firstItem="AFg-AH-v5v" firstAttribute="centerX" secondItem="oxA-dy-8y9" secondAttribute="centerX" id="kQU-39-sFy"/>
+                            <constraint firstItem="cpT-M1-PDd" firstAttribute="centerX" secondItem="oxA-dy-8y9" secondAttribute="centerX" id="swM-rx-a66"/>
+                            <constraint firstItem="jil-n6-zf0" firstAttribute="bottom" secondItem="cpT-M1-PDd" secondAttribute="bottom" constant="130" id="u98-GT-XZH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jil-n6-zf0"/>
+                    </view>
+                    <connections>
+                        <outlet property="getStartedBtn" destination="cpT-M1-PDd" id="3Aw-9L-KI6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSd-Ij-kc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="O07-vV-tcg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-4114.3999999999996" y="-1320.0899550224888"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="TQZ-5d-omG">
             <objects>
@@ -182,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7eV-NM-SIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2154" y="-1320"/>
+            <point key="canvasLocation" x="-2154.4000000000001" y="-1320.0899550224888"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ghK-3T-O4j">
@@ -234,6 +299,9 @@
             <point key="canvasLocation" x="-1095" y="240"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="coffee_icon" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
