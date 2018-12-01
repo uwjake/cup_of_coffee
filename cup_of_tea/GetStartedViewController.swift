@@ -12,7 +12,7 @@ class GetStartedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getStartedBtn.layer.cornerRadius = 30
+        getStartedBtn.layer.cornerRadius = 25
     }
     
     @IBOutlet weak var getStartedBtn: UIButton!
@@ -26,5 +26,4 @@ class GetStartedViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

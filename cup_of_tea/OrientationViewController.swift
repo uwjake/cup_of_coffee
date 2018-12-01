@@ -1,64 +1,38 @@
 //
-//  SetUpViewController.swift
+//  OrientationViewController.swift
 //  cup_of_tea
 //
-//  Created by Jake Jin on 11/28/18.
+//  Created by Liuqing Ma on 11/30/18.
 //  Copyright © 2018 Jake Jin. All rights reserved.
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestore
 
-//import FirebaseCore
-class SetUpViewController: UIViewController {
+class OrientationViewController: UIViewController {
     
-    var gender = ""
+    var orientation = ""
     var FEMALE = "female"
     var MALE = "male"
-
-    @IBOutlet weak var btnNext: UIButton!
     
+    @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var femaleLabel: UILabel!
-    
     @IBOutlet weak var maleLabel: UILabel!
-    
     @IBAction func femaleBtnPressed(_ sender: Any) {
         maleLabel.textColor = UIColor.black
         femaleLabel.textColor = UIColor.orange
-        gender = FEMALE
+        orientation = FEMALE
     }
     
     @IBAction func maleBtnPressed(_ sender: Any) {
         femaleLabel.textColor = UIColor.black
         maleLabel.textColor = UIColor.orange
-        gender = MALE
+        orientation = MALE
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnNext.layer.cornerRadius = 25
-        FirebaseApp.configure()
-        
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
+        nextBtn.layer.cornerRadius = 25
 
-        db.collection("users").document("one").getDocument() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-                print(querySnapshot!.documentID)
-                print(querySnapshot!.data())
-            }
-        }
-        
-        
         // Do any additional setup after loading the view.
     }
     
