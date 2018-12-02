@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class ProfilePictureViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -15,7 +16,7 @@ class ProfilePictureViewController: UIViewController, UINavigationControllerDele
 
         // Do any additional setup after loading the view.
     }
-    
+    var selectedImage: UIImage? = nil
     var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -39,8 +40,55 @@ class ProfilePictureViewController: UIViewController, UINavigationControllerDele
         }
         
         profileImageView.image = selectedImage
+        
+        let storageRef = Storage.storage().reference()
+        
+        // Data in memory
+        var data = NSData()
+        data = selectedImage.jpegData(compressionQuality: 0.05)! as NSData
+        
+        // Create a reference to the file you want to upload
+        let riversRef = storageRef.child("images/rivers.jpeg")
+        
+        // Upload the file to the path "images/rivers.jpg"
+        _ = riversRef.putData(data as Data, metadata: nil) { (metadata, error) in
+
+           
+            riversRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                UserProfile.sharedInstance.profile_pic_url = "\(downloadURL)"
+            }
+        }
+        
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cameraPressed(_ sender: UIButton) {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            selectImageFrom(.photoLibrary)
+            return
+        }
+        selectImageFrom(.camera)
+    }
+    enum ImageSource {
+        case photoLibrary
+        case camera
+    }
+    
+    func selectImageFrom(_ source: ImageSource){
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        switch source {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        }
+        present(imagePicker, animated: true, completion: nil)
     }
     
     /*

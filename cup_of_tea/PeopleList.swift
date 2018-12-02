@@ -1,5 +1,5 @@
 //
-//  UserProfile.swift
+//  PeopleList.swift
 //  cup_of_tea
 //
 //  Created by Jake Jin on 12/1/18.
@@ -7,9 +7,9 @@
 //
 
 import UIKit
+//import FirebaseFirestore
 
-class UserProfile: NSObject {
-   
+class PeopleList: NSObject {
     static let sharedInstance = UserProfile()
     
     var firstName = ""
@@ -18,6 +18,6 @@ class UserProfile: NSObject {
     var gender_pref = ""
     var age:Int? = nil
     var profile_pic_url = ""
-
     
+   
 }
