@@ -18,6 +18,7 @@ class UserProfile: NSObject {
     var gender_pref = ""
     var age:Int? = nil
     var profile_pic_url = ""
+    var peopleList:[Dictionary<String, Any>] = []
 
     
 }
