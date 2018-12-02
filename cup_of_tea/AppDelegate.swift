@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import Firebase
+import Firebase
 import GoogleMaps
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController!.displayModeButtonItem
         splitViewController!.delegate = self
         GMSServices.provideAPIKey("AIzaSyBoIu_uTe4qRMDsXbxvYDLtWdf_qdgXlcQ")
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
 //        let db = Firestore.firestore()
         return true
     }

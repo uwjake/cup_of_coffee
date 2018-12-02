@@ -12,7 +12,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
-
+  
     override func viewDidAppear(_ animated: Bool) {
         
         // if not set up, run code below to set up screens

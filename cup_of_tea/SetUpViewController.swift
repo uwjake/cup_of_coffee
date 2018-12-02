@@ -13,7 +13,6 @@ import FirebaseFirestore
 //import FirebaseCore
 class SetUpViewController: UIViewController {
     
-    var gender = ""
     var FEMALE = "female"
     var MALE = "male"
 
@@ -26,37 +25,36 @@ class SetUpViewController: UIViewController {
     @IBAction func femaleBtnPressed(_ sender: Any) {
         maleLabel.textColor = UIColor.black
         femaleLabel.textColor = UIColor.orange
-        gender = FEMALE
+        UserProfile.sharedInstance.gender = FEMALE
     }
     
     @IBAction func maleBtnPressed(_ sender: Any) {
         femaleLabel.textColor = UIColor.black
         maleLabel.textColor = UIColor.orange
-        gender = MALE
+        UserProfile.sharedInstance.gender = MALE
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         btnNext.layer.cornerRadius = 25
-        FirebaseApp.configure()
         
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-
-        db.collection("users").document("one").getDocument() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-                print(querySnapshot!.documentID)
-                print(querySnapshot!.data())
-            }
-        }
+//        let db = Firestore.firestore()
+//        let settings = db.settings
+//        settings.areTimestampsInSnapshotsEnabled = true
+//        db.settings = settings
+//
+//        db.collection("users").document("one").getDocument() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+////                for document in querySnapshot!.documents {
+////                    print("\(document.documentID) => \(document.data())")
+////                }
+//                print(querySnapshot!.documentID)
+//                print(querySnapshot!.data())
+//            }
+//        }
         
         
         // Do any additional setup after loading the view.

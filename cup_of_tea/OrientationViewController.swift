@@ -10,7 +10,7 @@ import UIKit
 
 class OrientationViewController: UIViewController {
     
-    var orientation = ""
+   
     var FEMALE = "female"
     var MALE = "male"
     
@@ -20,19 +20,21 @@ class OrientationViewController: UIViewController {
     @IBAction func femaleBtnPressed(_ sender: Any) {
         maleLabel.textColor = UIColor.black
         femaleLabel.textColor = UIColor.orange
-        orientation = FEMALE
+        UserProfile.sharedInstance.gender = FEMALE
+        
     }
     
     @IBAction func maleBtnPressed(_ sender: Any) {
         femaleLabel.textColor = UIColor.black
         maleLabel.textColor = UIColor.orange
-        orientation = MALE
+        UserProfile.sharedInstance.gender = MALE
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nextBtn.layer.cornerRadius = 25
-
+        
+        print(UserProfile.sharedInstance.firstName)
         // Do any additional setup after loading the view.
     }
     

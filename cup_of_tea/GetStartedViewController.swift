@@ -13,6 +13,7 @@ class GetStartedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getStartedBtn.layer.cornerRadius = 25
+        
     }
     
     @IBOutlet weak var getStartedBtn: UIButton!
@@ -26,4 +27,16 @@ class GetStartedViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
