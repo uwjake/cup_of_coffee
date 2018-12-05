@@ -21,7 +21,7 @@ class MasterViewController: UITableViewController {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
-        db.collection("users").whereField("gender", isEqualTo: "female")
+        db.collection("users").whereField("gender", isEqualTo: "male")
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -95,38 +95,41 @@ class MasterViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonTableViewCell", for: indexPath) as? PersonTableViewCell else {
             fatalError("The dequeued cell is not an instance of PersonTableViewCell.")
         }
-        let urle = objects[indexPath.row]["profile_picture"]
-        if let url = urle
-        {
+        let url = objects[indexPath.row]["profile_picture"] as! String
+        
             
-            cell.profilePicture.image = nil
-            
-            if let imagefromCache = imageCache.object(forKey: url as AnyObject) as? UIImage
+        
+            if url != ""
             {
-                cell.profilePicture.image = imagefromCache
-                
-            }
-            else
-            {
-                cell.profilePicture.image = nil
-                let urlURL = URL(string: (url as! String))
-                
-                URLSession.shared.dataTask(with: urlURL!, completionHandler: { (data, response, error) in
-                    if error != nil
-                    {
-//                        print(error.debugDescription)
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        let imagetoCache = UIImage(data:data!)
-                        self.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
-                        cell.profilePicture.image = imagetoCache
+               
+                if let imagefromCache = imageCache.object(forKey: url as AnyObject) as? UIImage
+                {
+                    cell.profilePicture.image = imagefromCache
+                    
+                } else {
+                    cell.profilePicture.image = nil
+                    
+                    
+                    let urlURL = URL(string: (url))
+                    if urlURL != nil {
                         
+                        URLSession.shared.dataTask(with: urlURL!, completionHandler: { (data, response, error) in
+                            if error != nil
+                            {
+                                //                        print(error.debugDescription)
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                let imagetoCache = UIImage(data:data!)
+                                self.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
+                                cell.profilePicture.image = imagetoCache
+                                
+                            }
+                        }).resume()
                     }
-                }).resume()
-            }
+                 
+                }
         }
-//        cell.profilePicture.contentMode = .scaleAspectFill
         cell.name?.text = objects[indexPath.row]["first_name"] as? String
         cell.accessoryType = .disclosureIndicator
 //        cell.profilePicture?.imageFromURL(urlString:  objects[indexPath.row]["profile_picture"] as? String ?? "", PlaceHolderImage: UIImage.init(named: "profile_picture_placeholder")!)
