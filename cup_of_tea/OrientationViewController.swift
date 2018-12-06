@@ -15,18 +15,22 @@ class OrientationViewController: UIViewController {
     var MALE = "male"
     
     @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var femaleLabel: UILabel!
-    @IBOutlet weak var maleLabel: UILabel!
+    
+    @IBOutlet weak var bt_female: UIButton!
+    
+    @IBOutlet weak var bt_male: UIButton!
+    
+    
     @IBAction func femaleBtnPressed(_ sender: Any) {
-        maleLabel.textColor = UIColor.black
-        femaleLabel.textColor = UIColor.orange
+        bt_female.setImage(UIImage(named:"bt_female_selected"), for: .normal)
+        bt_male.setImage(UIImage(named:"bt_male"), for: .normal)
+
         UserProfile.sharedInstance.gender = FEMALE
-        
     }
     
     @IBAction func maleBtnPressed(_ sender: Any) {
-        femaleLabel.textColor = UIColor.black
-        maleLabel.textColor = UIColor.orange
+        bt_female.setImage(UIImage(named:"bt_female"), for: .normal)
+        bt_male.setImage(UIImage(named:"bt_male_selected"), for: .normal)
         UserProfile.sharedInstance.gender = MALE
     }
     
