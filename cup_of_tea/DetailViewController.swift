@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
                 let screenSize: CGRect = UIScreen.main.bounds
 //                profilePic.frame = CGRect(x: 0, y: 0, width: 200, height: 40.0)
                 profilePic.image = resizeImage(image: profilePic.image!, targetSize: CGSize(width: 200, height: 1))
+                profilePic.image = resizeImage(image: profilePic.image!, targetSize: CGSize(width: 1, height: 1))
             } else {
 //                profilePic.isHidden = false
                 if let imagefromCache = MasterViewController.imageCache.object(forKey: detail["profile_picture"] as AnyObject) as? UIImage
@@ -77,7 +78,7 @@ class DetailViewController: UIViewController {
                 print("Landscape1")
 //                profilePic.isHidden = true
                
-                profilePic.image = resizeImage(image:  profilePic.image!, targetSize: CGSize(width: 200, height: 1))
+                profilePic.image = resizeImage(image:  profilePic.image!, targetSize: CGSize(width: 1, height: 1))
             } else {
 //                print("Portrait")
 //                if let profileImg = MasterViewController.imageCache.object(forKey: NSObject.value(forKey: detail["profile_picture"] as! String) as AnyObject) {
@@ -93,7 +94,7 @@ class DetailViewController: UIViewController {
             }
         }
         
-       
+   
         
     func setProfileImg() {
         if detailItem != nil && profilePic != nil {

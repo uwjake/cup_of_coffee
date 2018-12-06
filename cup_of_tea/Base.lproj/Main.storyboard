@@ -31,35 +31,63 @@
             <objects>
                 <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="cup_of_tea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="93" y="357" width="226.33333333333337" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="profile_picture_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="N2n-se-Lb1">
-                                <rect key="frame" x="0.0" y="161" width="414" height="414"/>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-5q-9mx">
+                                <rect key="frame" x="0.0" y="64" width="414" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gft-uU-hoI">
+                                        <rect key="frame" x="8" y="8" width="398" height="929"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyZ-Iz-7BW">
+                                                <rect key="frame" x="186" y="826" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_picture_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="N2n-se-Lb1">
+                                                <rect key="frame" x="99" y="24" width="200" height="200"/>
+                                            </imageView>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
+                                                <rect key="frame" x="96" y="294" width="226" height="21"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="Gft-uU-hoI" secondAttribute="leading" constant="96" id="Bki-fh-Qrq"/>
+                                            <constraint firstItem="N2n-se-Lb1" firstAttribute="top" secondItem="Gft-uU-hoI" secondAttribute="top" constant="24" id="Evb-KM-kao"/>
+                                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerX" secondItem="uyZ-Iz-7BW" secondAttribute="centerX" id="NP2-k4-c6a"/>
+                                            <constraint firstAttribute="height" constant="929" id="nJW-5q-8S1"/>
+                                            <constraint firstItem="N2n-se-Lb1" firstAttribute="centerX" secondItem="Gft-uU-hoI" secondAttribute="centerX" id="rf0-P1-XWM"/>
+                                            <constraint firstAttribute="bottom" secondItem="uyZ-Iz-7BW" secondAttribute="bottom" constant="73" id="v97-hL-JAv"/>
+                                            <constraint firstItem="0XM-y9-sOw" firstAttribute="top" secondItem="N2n-se-Lb1" secondAttribute="bottom" constant="70" id="yHa-5f-RfO"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="N2n-se-Lb1" secondAttribute="height" multiplier="1:1" id="7ti-ut-RD1"/>
+                                    <constraint firstItem="Gft-uU-hoI" firstAttribute="trailing" secondItem="0Mr-5q-9mx" secondAttribute="trailingMargin" id="BY6-aY-0lJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gft-uU-hoI" secondAttribute="bottom" constant="63" id="Vn5-Q2-NYf"/>
+                                    <constraint firstItem="Gft-uU-hoI" firstAttribute="top" secondItem="0Mr-5q-9mx" secondAttribute="topMargin" id="YoO-Be-MA1"/>
+                                    <constraint firstItem="Gft-uU-hoI" firstAttribute="leading" secondItem="0Mr-5q-9mx" secondAttribute="leadingMargin" id="b7F-Wf-8L4"/>
+                                    <constraint firstItem="Gft-uU-hoI" firstAttribute="centerX" secondItem="0Mr-5q-9mx" secondAttribute="centerX" id="zzo-SW-Mzx"/>
                                 </constraints>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-5q-9mx">
-                                <rect key="frame" x="0.0" y="44" width="434" height="643"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="leading" secondItem="0Mr-5q-9mx" secondAttribute="leading" constant="20" id="JBT-4V-sCi"/>
+                            <constraint firstItem="0Mr-5q-9mx" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="HI0-fU-csJ"/>
+                            <constraint firstAttribute="trailing" secondItem="0Mr-5q-9mx" secondAttribute="trailing" id="mWe-HX-10y"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="0Mr-5q-9mx" secondAttribute="bottom" constant="-64" id="wV5-bF-UCy"/>
+                            <constraint firstItem="0Mr-5q-9mx" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" id="zcf-bq-5ga"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="firstNameLabel" destination="0XM-y9-sOw" id="Wo0-Xx-A7p"/>
                         <outlet property="profilePic" destination="N2n-se-Lb1" id="SpA-8h-8jg"/>
@@ -67,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-233.33333333333334" y="238.85869565217394"/>
+            <point key="canvasLocation" x="-234.78260869565219" y="237.22826086956525"/>
         </scene>
         <!--Master-->
         <scene sceneID="Nki-YV-4Qg">
@@ -667,7 +695,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your interests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLw-BN-Nzn">
-                                <rect key="frame" x="112.66666666666667" y="94" width="188.66666666666663" height="28.666666666666671"/>
+                                <rect key="frame" x="112.66666666666669" y="94" width="188.66666666666663" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <nil key="highlightedColor"/>
