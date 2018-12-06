@@ -16,25 +16,34 @@ class MasterViewController: UITableViewController {
     let imageCache = NSCache<AnyObject, AnyObject>()
     
     func loadData() {
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-        
-        db.collection("users").whereField("gender", isEqualTo: "male")
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
-                        UserProfile.sharedInstance.peopleList.append(document.data())
+        print("start loading")
+        DispatchQueue.main.async
+        {
+            let db = Firestore.firestore()
+            let settings = db.settings
+            settings.areTimestampsInSnapshotsEnabled = true
+            db.settings = settings
+            
+            db.collection("users").whereField("gender", isEqualTo: "male")
+                .getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+    //                        print("\(document.documentID) => \(document.data())")
+                            UserProfile.sharedInstance.peopleList.append(document.data())
+                        }
                     }
-                }
-                self.objects = UserProfile.sharedInstance.peopleList
+                    self.objects = UserProfile.sharedInstance.peopleList
+                    self.tableView.reloadData()
+    //                print(self.objects)
+            }
+            
+                
                 self.tableView.reloadData()
-//                print(self.objects)
+               
         }
+        print("done loading")
 
     }
   
@@ -46,13 +55,34 @@ class MasterViewController: UITableViewController {
         self.present(nextViewController, animated:true, completion:nil)
         
     }
+    
+    
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+       
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global().async {
+            self.loadData()
+            group.leave()
+        }
+        group.wait()
+         
+        refreshControl.endRefreshing()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
        
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
         loadData()
 //        self.tableView.register(UITableViewCell.self, forCellReuseIdentisfier: "PersonTableViewCell")
     }
@@ -96,7 +126,6 @@ class MasterViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of PersonTableViewCell.")
         }
         let url = objects[indexPath.row]["profile_picture"] as! String
-        
             
         
             if url != ""
@@ -119,59 +148,39 @@ class MasterViewController: UITableViewController {
                                 //                        print(error.debugDescription)
                                 return
                             }
+                            
                             DispatchQueue.main.async {
                                 let imagetoCache = UIImage(data:data!)
-                                self.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
-                                cell.profilePicture.image = imagetoCache
+                                if imagetoCache != nil {
+                                    self.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
+                                    cell.profilePicture.image = imagetoCache
                                 
+                                } else {
+//                                    print("url failed")
+                                    cell.profilePicture.image = UIImage(named: "profile_picture_placeholder")
+                                }
+
+                               
                             }
+                           
                         }).resume()
                     }
                  
                 }
-        }
+            } else {
+//                print("no profile picimgage")
+                cell.profilePicture.image = UIImage(named: "profile_picture_placeholder")
+            }
         cell.name?.text = objects[indexPath.row]["first_name"] as? String
         cell.accessoryType = .disclosureIndicator
-//        cell.profilePicture?.imageFromURL(urlString:  objects[indexPath.row]["profile_picture"] as? String ?? "", PlaceHolderImage: UIImage.init(named: "profile_picture_placeholder")!)
-//        print(objects[indexPath.row])
+
         return cell
     }
     
+    
+  
+    
+    
+    
 }
-//
-//extension UIImageView {
-//
-//    public func imageFromURL(urlString: String, PlaceHolderImage:UIImage) {
-//
-//        if self.image == nil{
-//            self.image = PlaceHolderImage
-//        }
-//
-//        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
-//
-//            if error != nil {
-//                print(error ?? "No Error")
-//                return
-//            }
-//            DispatchQueue.main.async(execute: { () -> Void in
-//                let image = UIImage(data: data!)
-//                self.image = image
-//            })
-//
-//        }).resume()
-//    }}
 
-//extension UIImageView {
-//    var isPortrait:  Bool    { return size.height > size.width }
-//    var isLandscape: Bool    { return size.width > size.height }
-//    var breadth:     CGFloat { return min(size.width, size.height) }
-//    var breadthSize: CGSize  { return CGSize(width: breadth, height: breadth) }
-//    var breadthRect: CGRect  { return CGRect(origin: .zero, size: breadthSize) }
-//    var squared: UIImage? {
-//        UIGraphicsBeginImageContextWithOptions(breadthSize, false, scale)
-//        defer { UIGraphicsEndImageContext() }
-//        guard let cgImage = cgImage?.cropping(to: CGRect(origin: CGPoint(x: isLandscape ? floor((size.width - size.height) / 2) : 0, y: isPortrait  ? floor((size.height - size.width) / 2) : 0), size: breadthSize)) else { return nil }
-//        UIImage(cgImage: cgImage).draw(in: breadthRect)
-//        return UIGraphicsGetImageFromCurrentImageContext()
-//    }
-//}
