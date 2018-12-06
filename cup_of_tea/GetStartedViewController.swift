@@ -12,11 +12,18 @@ class GetStartedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getStartedBtn.layer.cornerRadius = 25
+       
+    }
+    
+    @IBAction func getStartedBtn(_ sender: UIButton) {
+        // if not set up, run code below to set up screens
+//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MasterViewController")
+//                self.present(nextViewController, animated:true, completion:nil)
+        
         
     }
     
-    @IBOutlet weak var getStartedBtn: UIButton!
     
     /*
     // MARK: - Navigation

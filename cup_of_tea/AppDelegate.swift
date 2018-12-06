@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import GoogleMaps
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
@@ -16,19 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let settings = UserDefaults.standard
+        let setUp = settings.bool(forKey: "set_up")
+        print("set up: ", setUp)
         // Override point for customization after application launch.
-        let tabBarViewController = self.window!.rootViewController as! UITabBarController
-        var splitViewController:UISplitViewController? = nil
-        for viewController in tabBarViewController.viewControllers! {
-            if viewController.title == "Master" {
-                splitViewController = viewController as? UISplitViewController
-            }
+        if !setUp {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GetStartedViewController")
+            window!.rootViewController = nextViewController
+        } else {
+            let splitViewController = window!.rootViewController as! UISplitViewController
+
+            let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+//            navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+            splitViewController.delegate = self
         }
         
-        let navigationController = splitViewController!.viewControllers[splitViewController!.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController!.displayModeButtonItem
-        splitViewController!.delegate = self
-        GMSServices.provideAPIKey("AIzaSyBoIu_uTe4qRMDsXbxvYDLtWdf_qdgXlcQ")
+        
         FirebaseApp.configure()
 //        let db = Firestore.firestore()
         return true

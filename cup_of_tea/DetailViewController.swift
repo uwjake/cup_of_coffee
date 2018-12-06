@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    
+    let PROFILE_PICTURE_HEIGHT = 200
     
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -95,15 +95,28 @@ class DetailViewController: UIViewController {
         
        
         
-        // Update the user interface for the detail item.
-//        if let detail = detailItem {
-//            if let label = detailDescriptionLabel {
-//                label.text = (detail as AnyObject).description
-//            }
-//        }
-//        detailDescriptionLabel.text = detail["first_name"] as? String
-//
-//    }
+    func setProfileImg() {
+        if detailItem != nil && profilePic != nil {
+            detail = detailItem as! Dictionary<String, Any>
+            
+            if UIDevice.current.orientation.isLandscape {
+                profilePic.image = resizeImage(image:  profilePic.image!, targetSize: CGSize(width: 200, height: 1))
+                profilePic.isHidden = true
+
+            } else {
+                if let imagefromCache = MasterViewController.imageCache.object(forKey: detail["profile_picture"] as AnyObject) as? UIImage
+                {
+                    profilePic.image = imagefromCache
+                    
+                } else {
+                    profilePic.image = UIImage(named: "profile_picture_placeholder")
+                }
+                profilePic.isHidden = true
+                
+            }
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

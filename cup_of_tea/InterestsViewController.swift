@@ -22,12 +22,12 @@ class InterestsViewController: UIViewController {
     
     @IBOutlet weak var btnCheckBox6: UIButton!
     
-    @IBOutlet weak var nextBtn: UIButton!
+//    @IBOutlet weak var nextBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nextBtn.layer.cornerRadius = 25
+//        nextBtn.layer.cornerRadius = 25
 
         // Do any additional setup after loading the view.
         btnCheckBox1.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
