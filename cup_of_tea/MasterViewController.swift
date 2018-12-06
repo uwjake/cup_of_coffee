@@ -13,7 +13,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Dictionary<String, Any>]()
-    let imageCache = NSCache<AnyObject, AnyObject>()
+    static var imageCache = NSCache<AnyObject, AnyObject>()
     
     func loadData() {
 //        print("start loading")
@@ -129,7 +129,7 @@ class MasterViewController: UITableViewController {
         
             if url != ""
             {
-                if let imagefromCache = imageCache.object(forKey: url as AnyObject) as? UIImage
+                if let imagefromCache = MasterViewController.imageCache.object(forKey: url as AnyObject) as? UIImage
                 {
                     cell.profilePicture.image = imagefromCache
                     
@@ -150,7 +150,7 @@ class MasterViewController: UITableViewController {
                             DispatchQueue.main.async {
                                 let imagetoCache = UIImage(data:data!)
                                 if imagetoCache != nil {
-                                    self.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
+                                    MasterViewController.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
                                     cell.profilePicture.image = imagetoCache
                                 
                                 } else {

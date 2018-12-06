@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     var index = 0
-    
+    var detail: Dictionary<String, Any> = [:]
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if profilePic != nil {
             if UIDevice.current.orientation.isLandscape {
@@ -24,10 +24,15 @@ class DetailViewController: UIViewController {
                 
                 let screenSize: CGRect = UIScreen.main.bounds
 //                profilePic.frame = CGRect(x: 0, y: 0, width: 200, height: 40.0)
-                profilePic.image = resizeImage(image: profilePic.image!, targetSize: CGSize(width: 200, height: 20))
+                profilePic.image = resizeImage(image: profilePic.image!, targetSize: CGSize(width: 200, height: 1))
             } else {
 //                profilePic.isHidden = false
-               profilePic.image = resizeImage(image: profilePic.image!, targetSize: CGSize(width: 200, height: 200))
+                if let imagefromCache = MasterViewController.imageCache.object(forKey: detail["profile_picture"] as AnyObject) as? UIImage
+                {
+                     profilePic.image = resizeImage(image: imagefromCache, targetSize: CGSize(width: 200, height: 200))
+                    
+                }
+               
                 print("Portrait")
             }
         }
@@ -64,17 +69,27 @@ class DetailViewController: UIViewController {
 //        print(detailItem)
         
         if detailItem != nil && firstNameLabel != nil {
-            let detail = detailItem as! Dictionary<String, Any>
+            detail = detailItem as! Dictionary<String, Any>
             
             firstNameLabel.text = detail["first_name"] as? String
             
             if UIDevice.current.orientation.isLandscape {
                 print("Landscape1")
 //                profilePic.isHidden = true
-                profilePic.image = resizeImage(image: profilePic.image!, targetSize: CGSize(width: 200, height: 20))
+               
+                profilePic.image = resizeImage(image:  profilePic.image!, targetSize: CGSize(width: 200, height: 1))
             } else {
-                print("Portrait")
-                profilePic.image = resizeImage(image: profilePic.image!, targetSize: CGSize(width: 200, height: 200))
+//                print("Portrait")
+//                if let profileImg = MasterViewController.imageCache.object(forKey: NSObject.value(forKey: detail["profile_picture"] as! String) as AnyObject) {
+//                    profilePic.image = resizeImage(image: profileImg as! UIImage, targetSize: CGSize(width: 200, height: 200))
+                if let imagefromCache = MasterViewController.imageCache.object(forKey: detail["profile_picture"] as AnyObject) as? UIImage
+                {
+                    profilePic.image = imagefromCache
+                    
+                }
+                
+                }
+            
             }
         }
         
@@ -88,7 +103,7 @@ class DetailViewController: UIViewController {
 //        }
 //        detailDescriptionLabel.text = detail["first_name"] as? String
 //
-    }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
