@@ -16,7 +16,7 @@ class MasterViewController: UITableViewController {
     let imageCache = NSCache<AnyObject, AnyObject>()
     
     func loadData() {
-        print("start loading")
+//        print("start loading")
         DispatchQueue.main.async
         {
             let db = Firestore.firestore()
@@ -43,16 +43,16 @@ class MasterViewController: UITableViewController {
                 self.tableView.reloadData()
                
         }
-        print("done loading")
+//        print("done loading")
 
     }
   
     override func viewDidAppear(_ animated: Bool) {
         
         // if not set up, run code below to set up screens
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GetStartedViewController")
-        self.present(nextViewController, animated:true, completion:nil)
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GetStartedViewController")
+//        self.present(nextViewController, animated:true, completion:nil)
         
     }
     
@@ -99,9 +99,9 @@ class MasterViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-//                controller.detailItem = object
-//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//                controller.navigationItem.leftItemsSupplementBackButton = true
+                controller.detailItem = object
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
@@ -126,11 +126,9 @@ class MasterViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of PersonTableViewCell.")
         }
         let url = objects[indexPath.row]["profile_picture"] as! String
-            
         
             if url != ""
             {
-               
                 if let imagefromCache = imageCache.object(forKey: url as AnyObject) as? UIImage
                 {
                     cell.profilePicture.image = imagefromCache
@@ -159,13 +157,9 @@ class MasterViewController: UITableViewController {
 //                                    print("url failed")
                                     cell.profilePicture.image = UIImage(named: "profile_picture_placeholder")
                                 }
-
-                               
                             }
-                           
                         }).resume()
                     }
-                 
                 }
             } else {
 //                print("no profile picimgage")
@@ -176,11 +170,5 @@ class MasterViewController: UITableViewController {
 
         return cell
     }
-    
-    
-  
-    
-    
-    
 }
 
