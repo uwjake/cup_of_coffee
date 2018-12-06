@@ -22,15 +22,14 @@ class OrientationViewController: UIViewController {
     
     
     @IBAction func femaleBtnPressed(_ sender: Any) {
-        bt_female.setImage(UIImage(named:"bt_female_selected"), for: .normal)
-        bt_male.setImage(UIImage(named:"bt_male"), for: .normal)
-
+        bt_female.setBackgroundImage(UIImage(named:"bt_female_selected"), for: .normal)
+        bt_male.setBackgroundImage(UIImage(named:"bt_male"), for: .normal)
         UserProfile.sharedInstance.gender = FEMALE
     }
     
     @IBAction func maleBtnPressed(_ sender: Any) {
-        bt_female.setImage(UIImage(named:"bt_female"), for: .normal)
-        bt_male.setImage(UIImage(named:"bt_male_selected"), for: .normal)
+        bt_female.setBackgroundImage(UIImage(named:"bt_female"), for: .normal)
+        bt_male.setBackgroundImage(UIImage(named:"bt_male_selected"), for: .normal)
         UserProfile.sharedInstance.gender = MALE
     }
     
