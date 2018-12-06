@@ -285,10 +285,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ0-xA-lrJ">
-                                <rect key="frame" x="214" y="217.66666666666663" width="160" height="190"/>
+                                <rect key="frame" x="224" y="217.66666666666663" width="150" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="67D-zu-Cdf"/>
-                                    <constraint firstAttribute="width" constant="160" id="R1V-Dm-IvM"/>
+                                    <constraint firstAttribute="width" constant="150" id="hwJ-R7-6y4"/>
+                                    <constraint firstAttribute="height" constant="180" id="yTP-jG-hoN"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="bt_male"/>
                                 <connections>
@@ -296,10 +296,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nf-s7-NLy">
-                                <rect key="frame" x="40" y="217.66666666666663" width="160" height="190"/>
+                                <rect key="frame" x="40" y="217.66666666666663" width="150" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="xJS-EL-dwO"/>
-                                    <constraint firstAttribute="width" constant="160" id="zHI-1N-8ec"/>
+                                    <constraint firstAttribute="width" constant="150" id="v3o-eV-ZJ3"/>
+                                    <constraint firstAttribute="height" constant="180" id="vPi-oG-zjv"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="bt_female"/>
                                 <connections>
@@ -309,14 +309,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7nf-s7-NLy" firstAttribute="leading" secondItem="5wu-EH-cGd" secondAttribute="leading" constant="40" id="0Nu-jF-M6s"/>
+                            <constraint firstItem="7nf-s7-NLy" firstAttribute="top" secondItem="CPp-nB-wZd" secondAttribute="bottom" constant="100" id="9Bh-Ad-1UQ"/>
                             <constraint firstItem="CPp-nB-wZd" firstAttribute="top" secondItem="5wu-EH-cGd" secondAttribute="top" constant="20" id="D23-Nu-h0p"/>
-                            <constraint firstItem="7nf-s7-NLy" firstAttribute="top" secondItem="CPp-nB-wZd" secondAttribute="bottom" constant="100" id="V7x-0F-TRL"/>
+                            <constraint firstItem="7nf-s7-NLy" firstAttribute="leading" secondItem="5wu-EH-cGd" secondAttribute="leading" constant="40" id="DzR-2I-sDP"/>
                             <constraint firstItem="Fcj-NG-eds" firstAttribute="centerX" secondItem="PJD-yq-dJ7" secondAttribute="centerX" id="asA-sc-gNH"/>
                             <constraint firstItem="CPp-nB-wZd" firstAttribute="centerX" secondItem="PJD-yq-dJ7" secondAttribute="centerX" id="bVc-in-DLs"/>
-                            <constraint firstItem="yJ0-xA-lrJ" firstAttribute="top" secondItem="CPp-nB-wZd" secondAttribute="bottom" constant="100" id="oSO-oF-SYJ"/>
+                            <constraint firstItem="yJ0-xA-lrJ" firstAttribute="top" secondItem="CPp-nB-wZd" secondAttribute="bottom" constant="100" id="eDT-fo-VMp"/>
+                            <constraint firstItem="5wu-EH-cGd" firstAttribute="trailing" secondItem="yJ0-xA-lrJ" secondAttribute="trailing" constant="40" id="iU0-4a-z1O"/>
                             <constraint firstItem="5wu-EH-cGd" firstAttribute="bottom" secondItem="Fcj-NG-eds" secondAttribute="bottom" constant="100" id="pdJ-fx-Shz"/>
-                            <constraint firstItem="5wu-EH-cGd" firstAttribute="trailing" secondItem="yJ0-xA-lrJ" secondAttribute="trailing" constant="40" id="ys6-QI-xbI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5wu-EH-cGd"/>
                     </view>
