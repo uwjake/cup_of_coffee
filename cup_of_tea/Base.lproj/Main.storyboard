@@ -516,7 +516,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="btnPressed:" destination="O07-vV-tcg" eventType="touchUpInside" id="2ww-p6-4td"/>
-                                    <segue destination="yEe-C1-jNy" kind="show" id="Ziz-Kh-WDg"/>
+                                    <segue destination="yEe-C1-jNy" kind="show" id="iR9-Q1-iUL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -539,20 +539,181 @@
             </objects>
             <point key="canvasLocation" x="295.6521739130435" y="-1319.8369565217392"/>
         </scene>
-        <!--View Controller-->
+        <!--Interests View Controller-->
         <scene sceneID="nHg-mO-fFM">
             <objects>
-                <viewController id="yEe-C1-jNy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InterestsViewController" id="yEe-C1-jNy" customClass="InterestsViewController" customModule="cup_of_tea" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ClU-rj-Vrn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qYD-pJ-DSK">
+                                <rect key="frame" x="142" y="193" width="130" height="350"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="hXJ-eV-M7L">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="350"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-cy-mZH">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                                <connections>
+                                                    <action selector="checkMarkTapped:" destination="yEe-C1-jNy" eventType="touchUpInside" id="8Wv-hp-uUX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85C-PN-0yF">
+                                                <rect key="frame" x="0.0" y="68" width="30" height="34"/>
+                                                <connections>
+                                                    <action selector="checkMarkTapped:" destination="yEe-C1-jNy" eventType="touchUpInside" id="aGg-xC-U8n"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGV-Ne-uCa">
+                                                <rect key="frame" x="0.0" y="136" width="30" height="34"/>
+                                                <connections>
+                                                    <action selector="checkMarkTapped:" destination="yEe-C1-jNy" eventType="touchUpInside" id="Y4c-Ve-B59"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idn-Ge-gd4">
+                                                <rect key="frame" x="0.0" y="204" width="30" height="34"/>
+                                                <connections>
+                                                    <action selector="checkMarkTapped:" destination="yEe-C1-jNy" eventType="touchUpInside" id="3VK-zQ-zct"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhK-Ip-7HC">
+                                                <rect key="frame" x="0.0" y="272" width="30" height="34"/>
+                                                <connections>
+                                                    <action selector="checkMarkTapped:" destination="yEe-C1-jNy" eventType="touchUpInside" id="M6s-lf-BGn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuI-YX-5NJ">
+                                                <rect key="frame" x="0.0" y="340" width="30" height="10"/>
+                                                <connections>
+                                                    <action selector="checkMarkTapped:" destination="yEe-C1-jNy" eventType="touchUpInside" id="Lez-U6-syn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="CZz-B6-WHD">
+                                        <rect key="frame" x="50" y="0.0" width="80" height="350"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hiking" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y7W-Pb-km1">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Cvu-9G-0gY"/>
+                                                    <constraint firstAttribute="width" constant="80" id="ISV-FI-sqc"/>
+                                                    <constraint firstAttribute="height" constant="30" id="aWp-2G-cMb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Movie" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N88-zI-405">
+                                                <rect key="frame" x="0.0" y="64" width="80" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="3KB-Mh-fer"/>
+                                                    <constraint firstAttribute="width" constant="80" id="3e6-g6-HXe"/>
+                                                    <constraint firstAttribute="height" constant="30" id="8RP-yR-s2b"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Eating" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="afV-am-m7g">
+                                                <rect key="frame" x="0.0" y="128" width="80" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ROQ-6v-Tkc"/>
+                                                    <constraint firstAttribute="height" constant="30" id="dDT-Rn-4fG"/>
+                                                    <constraint firstAttribute="width" constant="80" id="vb4-C6-3D7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Gaming" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QjH-ft-9SQ">
+                                                <rect key="frame" x="0.0" y="192" width="80" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="1Kx-M3-1L6"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="6Ro-8O-UR8"/>
+                                                    <constraint firstAttribute="width" constant="80" id="rki-2Z-0v8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Cudding" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z5k-0e-7rf">
+                                                <rect key="frame" x="0.0" y="256" width="80" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="GPi-AW-8id"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="YPZ-Gq-J8Q"/>
+                                                    <constraint firstAttribute="width" constant="80" id="ms2-R7-J8f"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Cooking" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Aro-FL-Lv7">
+                                                <rect key="frame" x="0.0" y="320" width="80" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="I0I-Lb-LOX"/>
+                                                    <constraint firstAttribute="height" constant="30" id="aQe-Bs-1Zv"/>
+                                                    <constraint firstAttribute="width" constant="80" id="dTJ-hF-B3T"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="IpH-KH-GUu"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your interests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLw-BN-Nzn">
+                                <rect key="frame" x="112.66666666666667" y="94" width="188.66666666666663" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYt-gy-YfT">
+                                <rect key="frame" x="107" y="586" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.88337920979999995" green="0.58521807250000002" blue="0.34426981559999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="6b0-fh-4iC"/>
+                                    <constraint firstAttribute="height" constant="50" id="7oB-t5-L8o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPressed:" destination="O07-vV-tcg" eventType="touchUpInside" id="cLy-Ht-j8i"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sYt-gy-YfT" firstAttribute="centerX" secondItem="ClU-rj-Vrn" secondAttribute="centerX" id="8zv-Nb-PHI"/>
+                            <constraint firstItem="qYD-pJ-DSK" firstAttribute="centerY" secondItem="ClU-rj-Vrn" secondAttribute="centerY" id="DbQ-P1-db5"/>
+                            <constraint firstItem="qYD-pJ-DSK" firstAttribute="centerX" secondItem="ClU-rj-Vrn" secondAttribute="centerX" id="WuZ-j2-EeT"/>
+                            <constraint firstItem="hFC-9x-hVs" firstAttribute="bottom" secondItem="sYt-gy-YfT" secondAttribute="bottom" constant="100" id="cGC-MT-7OO"/>
+                            <constraint firstItem="MLw-BN-Nzn" firstAttribute="top" secondItem="hFC-9x-hVs" secondAttribute="top" constant="30" id="nFT-FE-v5V"/>
+                            <constraint firstItem="MLw-BN-Nzn" firstAttribute="centerX" secondItem="ClU-rj-Vrn" secondAttribute="centerX" id="zvf-6g-7KU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hFC-9x-hVs"/>
                     </view>
+                    <connections>
+                        <outlet property="btnCheckBox1" destination="2mM-cy-mZH" id="1ox-J1-sLV"/>
+                        <outlet property="btnCheckBox2" destination="85C-PN-0yF" id="JCa-vb-SCb"/>
+                        <outlet property="btnCheckBox3" destination="dGV-Ne-uCa" id="5V8-Tp-kvc"/>
+                        <outlet property="btnCheckBox4" destination="Idn-Ge-gd4" id="zLd-Is-ZcX"/>
+                        <outlet property="btnCheckBox5" destination="QhK-Ip-7HC" id="Pfi-QE-iWa"/>
+                        <outlet property="btnCheckBox6" destination="cuI-YX-5NJ" id="YKn-nz-rI3"/>
+                        <outlet property="nextBtn" destination="sYt-gy-YfT" id="6g6-Gj-HcX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A73-UQ-oju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="-1320"/>
+            <point key="canvasLocation" x="1173.913043478261" y="-1320.6521739130435"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9nh-f8-gkE">

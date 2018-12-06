@@ -23,6 +23,7 @@
 		239C785221AFB4A40033A51B /* cup_of_teaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C785121AFB4A40033A51B /* cup_of_teaUITests.swift */; };
 		239C786021AFBCF40033A51B /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C785F21AFBCF40033A51B /* SetUpViewController.swift */; };
 		239C786221AFC3A20033A51B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 239C786121AFC3A20033A51B /* GoogleService-Info.plist */; };
+		29155CDC21B8BFA900F86406 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29155CDB21B8BFA900F86406 /* InterestsViewController.swift */; };
 		29259A3F21B20CA600BAA166 /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29259A3E21B20CA600BAA166 /* GetStartedViewController.swift */; };
 		29259A4121B24AA700BAA166 /* OrientationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29259A4021B24AA700BAA166 /* OrientationViewController.swift */; };
 		66099FB4C876B6BEC31F90DB /* Pods_cup_of_teaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29438E79D57DD55A891F57C /* Pods_cup_of_teaUITests.framework */; };
@@ -69,6 +70,7 @@
 		239C785321AFB4A40033A51B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239C785F21AFBCF40033A51B /* SetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
 		239C786121AFC3A20033A51B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		29155CDB21B8BFA900F86406 /* InterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		29259A3E21B20CA600BAA166 /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		29259A4021B24AA700BAA166 /* OrientationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationViewController.swift; sourceTree = "<group>"; };
 		2DA541B4EDDD90395896C456 /* Pods-cup_of_teaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cup_of_teaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cup_of_teaUITests/Pods-cup_of_teaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				2300006C21B3824A00E1957B /* NameViewController.swift */,
 				2300007021B38ED600E1957B /* ProfilePictureViewController.swift */,
 				2310710321B3C070003B2E90 /* PersonTableViewCell.swift */,
+				29155CDB21B8BFA900F86406 /* InterestsViewController.swift */,
 			);
 			path = cup_of_tea;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				2300007121B38ED600E1957B /* ProfilePictureViewController.swift in Sources */,
 				239C783421AFB4A30033A51B /* DetailViewController.swift in Sources */,
 				2300006B21B37DF400E1957B /* UserProfile.swift in Sources */,
+				29155CDC21B8BFA900F86406 /* InterestsViewController.swift in Sources */,
 				2310710421B3C070003B2E90 /* PersonTableViewCell.swift in Sources */,
 				2300006D21B3824A00E1957B /* NameViewController.swift in Sources */,
 				2300006F21B388EB00E1957B /* MapViewController.swift in Sources */,
