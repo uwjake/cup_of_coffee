@@ -17,7 +17,7 @@ class InterestsViewController: UIViewController {
     @IBOutlet weak var btnCheckBox5: UIButton!
     @IBOutlet weak var btnCheckBox6: UIButton!
     let interestsList : Array<String> = ["Hiking", "Movie", "Eating", "Gaming", "Cudding", "Cooking"]
-    var userInterests = UserProfile.sharedInstance.interests
+    var userInstance = UserProfile.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,9 @@ class InterestsViewController: UIViewController {
         setupBtnCheckBox(btnCheckBox: btnCheckBox4);
         setupBtnCheckBox(btnCheckBox: btnCheckBox5);
         setupBtnCheckBox(btnCheckBox: btnCheckBox6);
+        print("user gender: \(UserProfile.sharedInstance.gender)")
+        print("user gender pref: \(UserProfile.sharedInstance.gender_pref)")
+        print("user name: \(UserProfile.sharedInstance.firstName)")
     }
     
     func setupBtnCheckBox(btnCheckBox : UIButton!) {
@@ -35,51 +38,50 @@ class InterestsViewController: UIViewController {
     }
     
     @IBAction func checkBox1Pressed(_ sender: Any) {
-        if (userInterests.contains(interestsList[0])) {
-            userInterests.remove(interestsList[0])
+        if (userInstance.interests.contains(interestsList[0])) {
+            userInstance.interests.remove(interestsList[0])
         } else {
-            userInterests.insert(interestsList[0])
+            userInstance.interests.insert(interestsList[0])
         }
     }
     
     @IBAction func checkBox2Pressed(_ sender: Any) {
-        if (userInterests.contains(interestsList[1])) {
-            userInterests.remove(interestsList[1])
+        if (userInstance.interests.contains(interestsList[1])) {
+            userInstance.interests.remove(interestsList[1])
         } else {
-            userInterests.insert(interestsList[1])
+            userInstance.interests.insert(interestsList[1])
         }
     }
 
-
     @IBAction func checkBox3Pressed(_ sender: Any) {
-        if (userInterests.contains(interestsList[2])) {
-            userInterests.remove(interestsList[2])
+        if (userInstance.interests.contains(interestsList[2])) {
+            userInstance.interests.remove(interestsList[2])
         } else {
-            userInterests.insert(interestsList[2])
+            userInstance.interests.insert(interestsList[2])
         }
     }
 
     @IBAction func checkBox4Pressed(_ sender: Any) {
-        if (userInterests.contains(interestsList[3])) {
-            userInterests.remove(interestsList[3])
+        if (userInstance.interests.contains(interestsList[3])) {
+            userInstance.interests.remove(interestsList[3])
         } else {
-            userInterests.insert(interestsList[3])
+            userInstance.interests.insert(interestsList[3])
         }
     }
 
     @IBAction func checkBox5Pressed(_ sender: Any) {
-        if (userInterests.contains(interestsList[4])) {
-            userInterests.remove(interestsList[4])
+        if (userInstance.interests.contains(interestsList[4])) {
+            userInstance.interests.remove(interestsList[4])
         } else {
-            userInterests.insert(interestsList[4])
+            userInstance.interests.insert(interestsList[4])
         }
     }
 
     @IBAction func checkBox6Pressed(_ sender: Any) {
-        if (userInterests.contains(interestsList[5])) {
-            userInterests.remove(interestsList[5])
+        if (userInstance.interests.contains(interestsList[5])) {
+            userInstance.interests.remove(interestsList[5])
         } else {
-            userInterests.insert(interestsList[5])
+            userInstance.interests.insert(interestsList[5])
         }
     }
     
@@ -99,7 +101,7 @@ class InterestsViewController: UIViewController {
                 sender.transform = .identity
             }, completion: nil)
         }
-        print(userInterests)
+        print("User interests: \(UserProfile.sharedInstance.interests)")
     }
     
     /*

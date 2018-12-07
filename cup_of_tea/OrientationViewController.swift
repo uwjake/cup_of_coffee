@@ -10,38 +10,31 @@ import UIKit
 
 class OrientationViewController: UIViewController {
     
-   
     var FEMALE = "female"
     var MALE = "male"
+    var userInstance = UserProfile.sharedInstance
     
     @IBOutlet weak var nextBtn: UIButton!
-    
     @IBOutlet weak var bt_female: UIButton!
-    
     @IBOutlet weak var bt_male: UIButton!
-    
     
     @IBAction func femaleBtnPressed(_ sender: Any) {
         bt_female.setBackgroundImage(UIImage(named:"bt_female_selected"), for: .normal)
         bt_male.setBackgroundImage(UIImage(named:"bt_male"), for: .normal)
-        UserProfile.sharedInstance.gender = FEMALE
+        userInstance.gender_pref = FEMALE
     }
     
     @IBAction func maleBtnPressed(_ sender: Any) {
         bt_female.setBackgroundImage(UIImage(named:"bt_female"), for: .normal)
         bt_male.setBackgroundImage(UIImage(named:"bt_male_selected"), for: .normal)
-        UserProfile.sharedInstance.gender = MALE
+        userInstance.gender_pref = MALE
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextBtn.layer.cornerRadius = 25
-        
-        print(UserProfile.sharedInstance.firstName)
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

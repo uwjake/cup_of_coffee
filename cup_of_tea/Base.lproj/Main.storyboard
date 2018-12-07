@@ -353,7 +353,6 @@
                     <connections>
                         <outlet property="bt_female" destination="7nf-s7-NLy" id="A4t-IZ-82H"/>
                         <outlet property="bt_male" destination="yJ0-xA-lrJ" id="Sqg-qv-a9C"/>
-                        <outlet property="btnNext" destination="Fcj-NG-eds" id="rOJ-ui-tsw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7eV-NM-SIX" userLabel="First Responder" sceneMemberID="firstResponder"/>

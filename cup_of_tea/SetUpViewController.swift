@@ -16,25 +16,24 @@ class SetUpViewController: UIViewController {
     var FEMALE = "female"
     var MALE = "male"
 
-    @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var bt_female: UIButton!
     @IBOutlet weak var bt_male: UIButton!
+    var userInstance = UserProfile.sharedInstance
     
     @IBAction func femaleBtnPressed(_ sender: Any) {
         bt_female.setBackgroundImage(UIImage(named:"bt_female_selected"), for: .normal)
         bt_male.setBackgroundImage(UIImage(named:"bt_male"), for: .normal)
-        UserProfile.sharedInstance.gender = FEMALE
+        userInstance.gender = FEMALE
     }
     
     @IBAction func maleBtnPressed(_ sender: Any) {
         bt_female.setBackgroundImage(UIImage(named:"bt_female"), for: .normal)
         bt_male.setBackgroundImage(UIImage(named:"bt_male_selected"), for: .normal)
-        UserProfile.sharedInstance.gender = MALE
+        userInstance.gender = MALE
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnNext.layer.cornerRadius = 25
         
 //        let db = Firestore.firestore()
 //        let settings = db.settings
