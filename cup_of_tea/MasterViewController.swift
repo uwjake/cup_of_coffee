@@ -14,6 +14,7 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Dictionary<String, Any>]()
     static var imageCache = NSCache<AnyObject, AnyObject>()
+    var userGenderPref = UserProfile.sharedInstance.gender_pref
     
     func loadData() {
 //        print("start loading")
@@ -24,7 +25,7 @@ class MasterViewController: UITableViewController {
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
             
-            db.collection("users").whereField("gender", isEqualTo: "male")
+            db.collection("users").whereField("gender", isEqualTo: self.userGenderPref)
                 .getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
@@ -38,10 +39,8 @@ class MasterViewController: UITableViewController {
                     self.tableView.reloadData()
     //                print(self.objects)
             }
-            
-                
+
                 self.tableView.reloadData()
-               
         }
 //        print("done loading")
 

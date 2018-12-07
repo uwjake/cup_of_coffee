@@ -230,31 +230,30 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffee_icon" translatesAutoresizingMaskIntoConstraints="NO" id="AFg-AH-v5v">
-                                <rect key="frame" x="107" y="40" width="200" height="200"/>
+                                <rect key="frame" x="87" y="100" width="240" height="240"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="BzZ-eq-CHV"/>
-                                    <constraint firstAttribute="height" constant="200" id="U4N-Lw-qhJ"/>
+                                    <constraint firstAttribute="height" constant="240" id="FxC-ki-QRE"/>
+                                    <constraint firstAttribute="width" constant="240" id="V7f-dZ-OK3"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Cup of Coffee" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ThP-kN-gds">
-                                <rect key="frame" x="87" y="220" width="240" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cup of Coffee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnv-Vw-Zjp">
+                                <rect key="frame" x="87" y="340" width="240" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="6l0-PP-ZFd"/>
-                                    <constraint firstAttribute="width" constant="240" id="Uf8-fb-qti"/>
+                                    <constraint firstAttribute="width" constant="240" id="0XH-Xb-UbH"/>
+                                    <constraint firstAttribute="height" constant="40" id="SHt-LL-Ev1"/>
                                 </constraints>
-                                <color key="textColor" red="0.88337920979999995" green="0.58521807250000002" blue="0.34426981559999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <color key="textColor" red="0.88337920979999995" green="0.58521807250000002" blue="0.34426981559999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cpT-M1-PDd" firstAttribute="centerX" secondItem="oxA-dy-8y9" secondAttribute="centerX" id="141-2Y-ScZ"/>
-                            <constraint firstItem="AFg-AH-v5v" firstAttribute="top" secondItem="jil-n6-zf0" secondAttribute="top" constant="20" id="7zY-n4-AwS"/>
-                            <constraint firstItem="ThP-kN-gds" firstAttribute="top" secondItem="jil-n6-zf0" secondAttribute="top" constant="200" id="8kG-4e-8qt"/>
-                            <constraint firstItem="ThP-kN-gds" firstAttribute="centerX" secondItem="oxA-dy-8y9" secondAttribute="centerX" id="Aed-cU-FDW"/>
+                            <constraint firstItem="cnv-Vw-Zjp" firstAttribute="centerX" secondItem="oxA-dy-8y9" secondAttribute="centerX" id="3yu-7O-TdM"/>
+                            <constraint firstItem="AFg-AH-v5v" firstAttribute="top" secondItem="jil-n6-zf0" secondAttribute="top" constant="80" id="7hN-wZ-k6V"/>
                             <constraint firstItem="jil-n6-zf0" firstAttribute="bottom" secondItem="cpT-M1-PDd" secondAttribute="bottom" constant="100" id="LTc-1c-P7f"/>
+                            <constraint firstItem="cnv-Vw-Zjp" firstAttribute="top" secondItem="jil-n6-zf0" secondAttribute="top" constant="320" id="k53-Iq-Szh"/>
                             <constraint firstItem="AFg-AH-v5v" firstAttribute="centerX" secondItem="oxA-dy-8y9" secondAttribute="centerX" id="kQU-39-sFy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jil-n6-zf0"/>
@@ -263,7 +262,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSd-Ij-kc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="O07-vV-tcg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-4114.3999999999996" y="-1320.0899550224888"/>
+            <point key="canvasLocation" x="-4114.4927536231889" y="-1320.6521739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TQZ-5d-omG">
