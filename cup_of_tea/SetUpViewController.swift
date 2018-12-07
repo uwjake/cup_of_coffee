@@ -15,19 +15,14 @@ class SetUpViewController: UIViewController {
     
     var FEMALE = "female"
     var MALE = "male"
-    
-    
 
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var bt_female: UIButton!
     @IBOutlet weak var bt_male: UIButton!
     
     @IBAction func femaleBtnPressed(_ sender: Any) {
-        
-        
         bt_female.setBackgroundImage(UIImage(named:"bt_female_selected"), for: .normal)
         bt_male.setBackgroundImage(UIImage(named:"bt_male"), for: .normal)
-        
         UserProfile.sharedInstance.gender = FEMALE
     }
     

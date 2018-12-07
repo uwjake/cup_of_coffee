@@ -21,7 +21,6 @@ class GetStartedViewController: UIViewController {
 //                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MasterViewController")
 //                self.present(nextViewController, animated:true, completion:nil)
         
-        
     }
     
     

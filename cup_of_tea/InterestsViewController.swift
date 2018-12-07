@@ -11,42 +11,76 @@ import UIKit
 class InterestsViewController: UIViewController {
 
     @IBOutlet weak var btnCheckBox1: UIButton!
-    
     @IBOutlet weak var btnCheckBox2: UIButton!
-    
     @IBOutlet weak var btnCheckBox3: UIButton!
-    
     @IBOutlet weak var btnCheckBox4: UIButton!
-    
     @IBOutlet weak var btnCheckBox5: UIButton!
-    
     @IBOutlet weak var btnCheckBox6: UIButton!
-    
-//    @IBOutlet weak var nextBtn: UIButton!
+    let interestsList : Array<String> = ["Hiking", "Movie", "Eating", "Gaming", "Cudding", "Cooking"]
+    var userInterests = UserProfile.sharedInstance.interests
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        nextBtn.layer.cornerRadius = 25
+        setupBtnCheckBox(btnCheckBox: btnCheckBox1);
+        setupBtnCheckBox(btnCheckBox: btnCheckBox2);
+        setupBtnCheckBox(btnCheckBox: btnCheckBox3);
+        setupBtnCheckBox(btnCheckBox: btnCheckBox4);
+        setupBtnCheckBox(btnCheckBox: btnCheckBox5);
+        setupBtnCheckBox(btnCheckBox: btnCheckBox6);
+    }
+    
+    func setupBtnCheckBox(btnCheckBox : UIButton!) {
+        btnCheckBox.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
+        btnCheckBox.setImage(UIImage(named:"Checkmark"), for: .selected)
+    }
+    
+    @IBAction func checkBox1Pressed(_ sender: Any) {
+        if (userInterests.contains(interestsList[0])) {
+            userInterests.remove(interestsList[0])
+        } else {
+            userInterests.insert(interestsList[0])
+        }
+    }
+    
+    @IBAction func checkBox2Pressed(_ sender: Any) {
+        if (userInterests.contains(interestsList[1])) {
+            userInterests.remove(interestsList[1])
+        } else {
+            userInterests.insert(interestsList[1])
+        }
+    }
 
-        // Do any additional setup after loading the view.
-        btnCheckBox1.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
-        btnCheckBox1.setImage(UIImage(named:"Checkmark"), for: .selected)
-        
-        btnCheckBox2.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
-        btnCheckBox2.setImage(UIImage(named:"Checkmark"), for: .selected)
-        
-        btnCheckBox3.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
-        btnCheckBox3.setImage(UIImage(named:"Checkmark"), for: .selected)
-        
-        btnCheckBox4.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
-        btnCheckBox4.setImage(UIImage(named:"Checkmark"), for: .selected)
-        
-        btnCheckBox5.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
-        btnCheckBox5.setImage(UIImage(named:"Checkmark"), for: .selected)
-        
-        btnCheckBox6.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
-        btnCheckBox6.setImage(UIImage(named:"Checkmark"), for: .selected)
+
+    @IBAction func checkBox3Pressed(_ sender: Any) {
+        if (userInterests.contains(interestsList[2])) {
+            userInterests.remove(interestsList[2])
+        } else {
+            userInterests.insert(interestsList[2])
+        }
+    }
+
+    @IBAction func checkBox4Pressed(_ sender: Any) {
+        if (userInterests.contains(interestsList[3])) {
+            userInterests.remove(interestsList[3])
+        } else {
+            userInterests.insert(interestsList[3])
+        }
+    }
+
+    @IBAction func checkBox5Pressed(_ sender: Any) {
+        if (userInterests.contains(interestsList[4])) {
+            userInterests.remove(interestsList[4])
+        } else {
+            userInterests.insert(interestsList[4])
+        }
+    }
+
+    @IBAction func checkBox6Pressed(_ sender: Any) {
+        if (userInterests.contains(interestsList[5])) {
+            userInterests.remove(interestsList[5])
+        } else {
+            userInterests.insert(interestsList[5])
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,6 +99,7 @@ class InterestsViewController: UIViewController {
                 sender.transform = .identity
             }, completion: nil)
         }
+        print(userInterests)
     }
     
     /*
