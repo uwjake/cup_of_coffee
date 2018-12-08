@@ -175,6 +175,7 @@ class MasterViewController: UITableViewController {
         cell.name?.text = objects[indexPath.row]["first_name"] as? String
         cell.age?.text = "\(objects[indexPath.row]["age"] as! Int)"
         cell.distance?.text = "Distance: TODO"
+        cell.gender?.image = UIImage(named: objects[indexPath.row]["gender"] as? String ?? "gn")
         cell.accessoryType = .disclosureIndicator
 
         return cell

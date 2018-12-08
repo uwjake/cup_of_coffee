@@ -18,6 +18,7 @@ class PersonTableViewCell: UITableViewCell {
     
     @IBOutlet weak var distance: UILabel!
     
+    @IBOutlet weak var gender: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

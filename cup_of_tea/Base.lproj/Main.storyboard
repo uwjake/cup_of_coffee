@@ -122,6 +122,13 @@
                                                             <action selector="connectButton:" destination="JEX-9P-axG" eventType="touchUpInside" id="Cx7-Er-cCY"/>
                                                         </connections>
                                                     </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="male" translatesAutoresizingMaskIntoConstraints="NO" id="f1x-rF-364">
+                                                        <rect key="frame" x="52" y="102" width="27" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="27" id="ZCj-95-7UT"/>
+                                                            <constraint firstAttribute="height" constant="29" id="gEz-wL-kQu"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="lcQ-5a-fcV" firstAttribute="leading" secondItem="LnT-gH-XcL" secondAttribute="leading" id="1yI-cC-LCK"/>
@@ -133,12 +140,13 @@
                                                     <constraint firstItem="LnT-gH-XcL" firstAttribute="top" secondItem="qqn-sJ-SCM" secondAttribute="top" constant="54" id="8cH-6P-coH"/>
                                                     <constraint firstItem="lcQ-5a-fcV" firstAttribute="centerX" secondItem="qqn-sJ-SCM" secondAttribute="centerX" id="AUF-c7-BjD"/>
                                                     <constraint firstItem="i7i-U0-bmC" firstAttribute="centerX" secondItem="0XM-y9-sOw" secondAttribute="centerX" id="BZK-Do-Mme"/>
+                                                    <constraint firstItem="f1x-rF-364" firstAttribute="leading" secondItem="yD9-cd-Snq" secondAttribute="trailing" constant="2.5" id="DS9-hU-cJf"/>
+                                                    <constraint firstItem="f1x-rF-364" firstAttribute="top" secondItem="LnT-gH-XcL" secondAttribute="bottom" constant="6" id="GYu-tH-Zrd"/>
                                                     <constraint firstItem="lcQ-5a-fcV" firstAttribute="leading" secondItem="0XM-y9-sOw" secondAttribute="leading" id="NhG-zu-o0u"/>
                                                     <constraint firstItem="yD9-cd-Snq" firstAttribute="top" secondItem="LnT-gH-XcL" secondAttribute="bottom" constant="8" symbolic="YES" id="TFa-uH-Lgk"/>
                                                     <constraint firstItem="i7i-U0-bmC" firstAttribute="top" secondItem="UJO-dV-kSL" secondAttribute="bottom" constant="33" id="WgG-UD-MoK"/>
                                                     <constraint firstItem="i7i-U0-bmC" firstAttribute="centerX" secondItem="qqn-sJ-SCM" secondAttribute="centerX" id="bAT-8D-19S"/>
                                                     <constraint firstItem="lcQ-5a-fcV" firstAttribute="leading" secondItem="UJO-dV-kSL" secondAttribute="leading" id="gqU-CM-hmH"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yD9-cd-Snq" secondAttribute="trailing" constant="20" symbolic="YES" id="gw5-c4-oSo"/>
                                                     <constraint firstAttribute="trailing" secondItem="i7i-U0-bmC" secondAttribute="trailing" constant="61" id="jVm-YQ-jbB"/>
                                                     <constraint firstItem="lcQ-5a-fcV" firstAttribute="top" secondItem="i7i-U0-bmC" secondAttribute="bottom" constant="42" id="qfI-OW-dd0"/>
                                                     <constraint firstItem="i7i-U0-bmC" firstAttribute="centerX" secondItem="LnT-gH-XcL" secondAttribute="centerX" id="rYr-gz-kg9"/>
@@ -190,8 +198,10 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="ageLabel" destination="yD9-cd-Snq" id="97o-9a-88u"/>
+                        <outlet property="connectButton" destination="i7i-U0-bmC" id="Nb4-cT-1JI"/>
                         <outlet property="distanceLabel" destination="Gpl-YQ-Ghp" id="1yS-Tv-sBy"/>
                         <outlet property="firstNameLabel" destination="0XM-y9-sOw" id="Wo0-Xx-A7p"/>
+                        <outlet property="genderPic" destination="f1x-rF-364" id="Dcn-Ce-YNI"/>
                         <outlet property="imgHeightConstraint" destination="Mqr-AW-SmJ" id="tJC-DM-QXa"/>
                         <outlet property="interestsLabel" destination="UJO-dV-kSL" id="wuO-Dc-BKC"/>
                         <outlet property="profilePic" destination="N2n-se-Lb1" id="SpA-8h-8jg"/>
@@ -238,7 +248,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vdf-KX-e5g">
-                                            <rect key="frame" x="156" y="11" width="176" height="101"/>
+                                            <rect key="frame" x="156" y="11" width="176" height="105"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6T-pe-Mqf">
@@ -251,18 +261,30 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaW-Bq-NLZ">
-                                                    <rect key="frame" x="0.0" y="39" width="176" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="176" id="LsR-d9-Z4r"/>
-                                                        <constraint firstAttribute="height" constant="25" id="i81-u3-NHf"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bjR-tl-5eL">
+                                                    <rect key="frame" x="0.0" y="39" width="176" height="29"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="male" translatesAutoresizingMaskIntoConstraints="NO" id="arR-R3-aDm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="27" height="29"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="29" id="455-Wk-TKK"/>
+                                                                <constraint firstAttribute="width" constant="27" id="Xhd-WQ-IBD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaW-Bq-NLZ">
+                                                            <rect key="frame" x="31" y="0.0" width="145" height="29"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="176" id="LsR-d9-Z4r"/>
+                                                                <constraint firstAttribute="height" constant="25" id="i81-u3-NHf"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pam-H4-OLq">
-                                                    <rect key="frame" x="0.0" y="76" width="176" height="25"/>
+                                                    <rect key="frame" x="0.0" y="80" width="176" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="176" id="46T-Tp-f8b"/>
                                                         <constraint firstAttribute="height" constant="25" id="Fgm-Ea-lKH"/>
@@ -279,6 +301,7 @@
                                 <connections>
                                     <outlet property="age" destination="GaW-Bq-NLZ" id="DNB-hB-PbV"/>
                                     <outlet property="distance" destination="Pam-H4-OLq" id="P2r-ZI-s62"/>
+                                    <outlet property="gender" destination="arR-R3-aDm" id="jHa-9R-TbU"/>
                                     <outlet property="name" destination="f6T-pe-Mqf" id="UFm-kd-D7X"/>
                                     <outlet property="profilePicture" destination="F1J-QL-oq2" id="UlH-SR-lfn"/>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
@@ -7211,6 +7234,7 @@ JAAFgyYABYMrAAWDMwAFlJ8ABZShAAWUpgAFlLQABZS4AAWUvwAFlMQABZTRAAWU1AAFlOEABZTmAAWU
 HQ
 </mutableData>
         </image>
+        <image name="male" width="136" height="137"/>
         <image name="profile_picture_placeholder" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
