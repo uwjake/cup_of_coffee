@@ -15,7 +15,19 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
-    var index = 0
+    
+    @IBOutlet weak var interestsLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
+    
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+    
+    @IBAction func connectButton(_ sender: UIButton) {
+    }
+    @IBAction func navigateButton(_ sender: UIButton) {
+    }
+    
     var detail: Dictionary<String, Any> = [:]
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if profilePic != nil {
@@ -39,9 +51,18 @@ class DetailViewController: UIViewController {
 
         if detailItem != nil && firstNameLabel != nil {
             detail = detailItem as! Dictionary<String, Any>
-            
-            firstNameLabel.text = detail["first_name"] as? String
-            
+            let firstName = detail["first_name"] as! String
+            let lastName = detail["last_name"] as! String
+            if lastName == "" {
+                 firstNameLabel.text = detail["first_name"] as? String
+            } else {
+                 firstNameLabel.text = "\(firstName) \(lastName)"
+            }
+           
+            summaryLabel.text = detail["summary"] as? String
+            ageLabel.text = "Age: \(detail["age"] as? Int ?? 0)"
+            interestsLabel.text = "Interests: " + (detail["interests"] as? String ?? "")
+
             if let imagefromCache = MasterViewController.imageCache.object(forKey: detail["profile_picture"] as AnyObject) as? UIImage
             {
                 profilePic.image = imagefromCache

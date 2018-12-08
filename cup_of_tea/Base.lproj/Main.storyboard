@@ -95,6 +95,9 @@
                                                                         <integer key="value" value="15"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="navigateButton:" destination="JEX-9P-axG" eventType="touchUpInside" id="UsF-wd-JWw"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -115,6 +118,9 @@
                                                                 <integer key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="connectButton:" destination="JEX-9P-axG" eventType="touchUpInside" id="Cx7-Er-cCY"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -183,9 +189,13 @@
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="ageLabel" destination="yD9-cd-Snq" id="97o-9a-88u"/>
+                        <outlet property="distanceLabel" destination="Gpl-YQ-Ghp" id="1yS-Tv-sBy"/>
                         <outlet property="firstNameLabel" destination="0XM-y9-sOw" id="Wo0-Xx-A7p"/>
                         <outlet property="imgHeightConstraint" destination="Mqr-AW-SmJ" id="tJC-DM-QXa"/>
+                        <outlet property="interestsLabel" destination="UJO-dV-kSL" id="wuO-Dc-BKC"/>
                         <outlet property="profilePic" destination="N2n-se-Lb1" id="SpA-8h-8jg"/>
+                        <outlet property="summaryLabel" destination="LnT-gH-XcL" id="DQZ-tM-K89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

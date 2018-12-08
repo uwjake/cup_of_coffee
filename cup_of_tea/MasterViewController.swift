@@ -15,7 +15,11 @@ class MasterViewController: UITableViewController {
     var objects = [Dictionary<String, Any>]()
     static var imageCache = NSCache<AnyObject, AnyObject>()
     var userGenderPref = UserProfile.sharedInstance.gender_pref
-    
+    func getAgeFromTimestamp(dob: Timestamp)->Int {
+        let today = Int64(NSDate().timeIntervalSince1970)
+        let age = Int ( (today - dob.seconds) / (60*60*24*365) )
+        return age
+    }
     func loadData() {
           UserProfile.sharedInstance.peopleList = []
 //        print("start loading")
@@ -33,12 +37,14 @@ class MasterViewController: UITableViewController {
                     } else {
                         for document in querySnapshot!.documents {
     //                        print("\(document.documentID) => \(document.data())")
-                            UserProfile.sharedInstance.peopleList.append(document.data())
+                            var person = document.data()
+                            person["age"] = self.getAgeFromTimestamp(dob: person["dob"] as! Timestamp)
+                            UserProfile.sharedInstance.peopleList.append(person)
                         }
                     }
                     self.objects = UserProfile.sharedInstance.peopleList
                     self.tableView.reloadData()
-    //                print(self.objects)
+//                    print(self.objects)
             }
 
                 self.tableView.reloadData()
@@ -133,7 +139,6 @@ class MasterViewController: UITableViewController {
                 if let imagefromCache = MasterViewController.imageCache.object(forKey: url as AnyObject) as? UIImage
                 {
                     cell.profilePicture.image = imagefromCache
-                    MasterViewController.imageCache.setObject(UIImage(named: "profile_picture_placeholder")!, forKey: url as AnyObject)
                     
                 } else {
                     cell.profilePicture.image = nil
@@ -168,6 +173,8 @@ class MasterViewController: UITableViewController {
                 cell.profilePicture.image = UIImage(named: "profile_picture_placeholder")
             }
         cell.name?.text = objects[indexPath.row]["first_name"] as? String
+        cell.age?.text = "\(objects[indexPath.row]["age"] as! Int)"
+        cell.distance?.text = "Distance: TODO"
         cell.accessoryType = .disclosureIndicator
 
         return cell
