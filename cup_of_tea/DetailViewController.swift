@@ -44,11 +44,20 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
         }
     }
     @IBAction func navigateButton(_ sender: UIButton) {
-        let coordinate = CLLocationCoordinate2DMake(123,-45)
-        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-        mapItem.name = "Target location"
-        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+        let latitude: CLLocationDegrees = (detail["location"] as! Dictionary<String, Double>)["lat"]!
+        let longitude: CLLocationDegrees = (detail["location"] as! Dictionary<String, Double>)["lng"]!
         
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = detail["first_name"] as? String
+        mapItem.openInMaps(launchOptions: options)
     }
     
     var detail: Dictionary<String, Any> = [:]
@@ -56,7 +65,6 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
         if profilePic != nil {
             setProfilePicHeight()
         }
-        
     }
     
     func setProfilePicHeight() {
