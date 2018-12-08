@@ -133,6 +133,7 @@ class MasterViewController: UITableViewController {
                 if let imagefromCache = MasterViewController.imageCache.object(forKey: url as AnyObject) as? UIImage
                 {
                     cell.profilePicture.image = imagefromCache
+                    MasterViewController.imageCache.setObject(UIImage(named: "profile_picture_placeholder")!, forKey: url as AnyObject)
                     
                 } else {
                     cell.profilePicture.image = nil
