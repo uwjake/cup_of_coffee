@@ -456,6 +456,9 @@
                                                         <integer key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="wIN-c2-TYf" kind="show" id="Fxz-mp-Uiz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nki-u5-NE6">
                                                 <rect key="frame" x="175" y="0.0" width="150" height="35"/>
@@ -502,18 +505,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n22-Jp-mcw"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Profile" id="GRg-lF-chY">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="P1g-Nw-JS3">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aOV-f5-K0Q">
-                                <rect key="frame" x="267" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="wIN-c2-TYf" kind="showDetail" id="sDL-p9-uQo"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Profile" id="GRg-lF-chY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8mh-Kf-20Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

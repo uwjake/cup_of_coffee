@@ -53,6 +53,7 @@
 		2300006C21B3824A00E1957B /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		2300007021B38ED600E1957B /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
 		2310710321B3C070003B2E90 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		232890E221BC7D230057275C /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		2350D3BE21B9012800C911D2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		239C782C21AFB4A30033A51B /* cup_of_tea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cup_of_tea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239C782F21AFB4A30033A51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +167,7 @@
 				2310710321B3C070003B2E90 /* PersonTableViewCell.swift */,
 				29155CDB21B8BFA900F86406 /* InterestsViewController.swift */,
 				2350D3BE21B9012800C911D2 /* Settings.bundle */,
+				232890E221BC7D230057275C /* MyProfileViewController.swift */,
 			);
 			path = cup_of_tea;
 			sourceTree = "<group>";
@@ -469,6 +471,7 @@
 				2300006B21B37DF400E1957B /* UserProfile.swift in Sources */,
 				29155CDC21B8BFA900F86406 /* InterestsViewController.swift in Sources */,
 				2310710421B3C070003B2E90 /* PersonTableViewCell.swift in Sources */,
+				232890E321BC7D230057275C /* MyProfileViewController.swift in Sources */,
 				2300006D21B3824A00E1957B /* NameViewController.swift in Sources */,
 				239C783221AFB4A30033A51B /* MasterViewController.swift in Sources */,
 				29259A4121B24AA700BAA166 /* OrientationViewController.swift in Sources */,
