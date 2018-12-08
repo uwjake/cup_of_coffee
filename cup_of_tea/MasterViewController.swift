@@ -17,6 +17,7 @@ class MasterViewController: UITableViewController {
     var userGenderPref = UserProfile.sharedInstance.gender_pref
     
     func loadData() {
+          UserProfile.sharedInstance.peopleList = []
 //        print("start loading")
         DispatchQueue.main.async
         {
@@ -25,7 +26,7 @@ class MasterViewController: UITableViewController {
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
             
-            db.collection("users").whereField("gender", isEqualTo: self.userGenderPref)
+            db.collection("users").whereField("gender", isEqualTo: "female")
                 .getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
@@ -72,6 +73,7 @@ class MasterViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         
