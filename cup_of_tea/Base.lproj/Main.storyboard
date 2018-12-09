@@ -105,7 +105,6 @@
                                                         <rect key="frame" x="61" y="219" width="225" height="36"/>
                                                         <color key="backgroundColor" red="0.88337920979999995" green="0.58806087090000003" blue="0.3534217563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="225" id="9Gj-yu-jn3"/>
                                                             <constraint firstAttribute="height" constant="36" id="rtE-Ej-5oV"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
@@ -329,7 +328,7 @@
         <!--My Profile-->
         <scene sceneID="8Ph-Bg-Ytz">
             <objects>
-                <viewController id="WhX-Bc-vFI" sceneMemberID="viewController">
+                <viewController id="WhX-Bc-vFI" customClass="MyProfileViewController" customModule="cup_of_tea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="45r-F7-13k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -438,15 +437,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-qr-DjI">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-qr-DjI">
                                         <rect key="frame" x="0.0" y="288" width="325" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4Y-jH-ELu">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="35"/>
                                                 <color key="backgroundColor" red="0.88337920979999995" green="0.58806087090000003" blue="0.3534217563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="t84-nq-cYv"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
                                                 <state key="normal" title="Settings">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -463,9 +459,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nki-u5-NE6">
                                                 <rect key="frame" x="175" y="0.0" width="150" height="35"/>
                                                 <color key="backgroundColor" red="0.88337920979999995" green="0.58806087090000003" blue="0.3534217563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="2hn-Sm-nd8"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
                                                 <state key="normal" title="Reset Profile">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -475,6 +468,9 @@
                                                         <integer key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="resetProfile:" destination="WhX-Bc-vFI" eventType="touchUpInside" id="Hlo-gl-PQC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -506,6 +502,16 @@
                         <viewLayoutGuide key="safeArea" id="n22-Jp-mcw"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="GRg-lF-chY"/>
+                    <connections>
+                        <outlet property="contactLabel" destination="j6s-Ud-jhb" id="PbU-RB-Kh9"/>
+                        <outlet property="dobLabel" destination="rUx-wb-cDG" id="cRf-cT-qyc"/>
+                        <outlet property="genderPic" destination="Jgx-yV-bEQ" id="yCN-dq-ZdU"/>
+                        <outlet property="genderPrefPic" destination="igs-bp-csn" id="3co-9F-L7O"/>
+                        <outlet property="interestsLabel" destination="0gy-bE-hD7" id="vkU-YB-0qg"/>
+                        <outlet property="nameLabel" destination="j5T-cl-BQV" id="6um-zw-CrQ"/>
+                        <outlet property="profilePic" destination="KTz-eF-2xY" id="1cm-ia-yGY"/>
+                        <outlet property="summaryLabel" destination="C5e-ZG-jvv" id="460-h8-9Pg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8mh-Kf-20Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

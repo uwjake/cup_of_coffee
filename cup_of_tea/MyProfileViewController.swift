@@ -9,14 +9,14 @@
 import UIKit
 import FirebaseFirestore
 
-class MyProfileViewController: UISplitViewController {
+class MyProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadData()
         // Do any additional setup after loading the view.
     }
-    
+    var myProfileData: Dictionary<String, Any> = [:]
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -30,7 +30,7 @@ class MyProfileViewController: UISplitViewController {
     }
     
     func loadData() {
-        var myProfileData: Dictionary<String, Any> = [:]
+        
         //        print("start loading")
         DispatchQueue.main.async
             {
@@ -39,16 +39,29 @@ class MyProfileViewController: UISplitViewController {
                 settings.areTimestampsInSnapshotsEnabled = true
                 db.settings = settings
                 
-                let docRef = db.collection("cities").document("SF")
+                if  let array = UserDefaults.standard.object(forKey:"my_contact") as? String {
+                        print("asr", array)
+                }
+        
+                let myContact = "asdf"
+                print(UserDefaults.standard.object(forKey: "my_contact"))
+                
+                if myContact != nil || myContact != "" {
+                    print("My contact", myContact)
+               
+                    let docRef = db.collection("users").document(myContact ?? "d")
                 
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {
-                        myProfileData = document.data() as! Dictionary<String, Any>
-                        
-                        print(myProfileData)
+                        self.myProfileData = document.data() as! Dictionary<String, Any>
+                        print(self.myProfileData)
                     } else {
-                        print("Document does not exist")
+                        self.presentError()
                     }
+                }
+                    
+                } else {
+                   self.presentError()
                 }
 
                 
@@ -57,7 +70,13 @@ class MyProfileViewController: UISplitViewController {
         //        print("done loading")
         
     }
-    /*
+    
+    func presentError() {
+        let alert = UIAlertController(title: "Profile not found", message: "Cannot find your contact method in our database. Please try reseting your profile.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+     /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
