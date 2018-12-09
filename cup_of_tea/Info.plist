@@ -66,6 +66,8 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Choose a profile photo</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Access to current location</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Take a profile photo</string>
 </dict>

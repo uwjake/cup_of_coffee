@@ -7,22 +7,25 @@
 //
 
 import UIKit
+import CoreLocation
 
 class GetStartedViewController: UIViewController {
+    
+    let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
     }
     
-    @IBAction func getStartedBtn(_ sender: UIButton) {
+    @IBAction func BtnPressed(_ sender: Any) {
+        locationManager.requestLocation()
         // if not set up, run code below to set up screens
-//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MasterViewController")
-//                self.present(nextViewController, animated:true, completion:nil)
-        
+        //                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        //                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MasterViewController")
+        //                self.present(nextViewController, animated:true, completion:nil)
     }
-    
     
     /*
     // MARK: - Navigation
@@ -33,6 +36,19 @@ class GetStartedViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+extension GetStartedViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
+            print("The Location of user: \(lat),\(long)")
+        } else {
+            print("No coordinates")
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
 }
 
 extension UIViewController {
