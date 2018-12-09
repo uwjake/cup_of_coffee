@@ -20,6 +20,7 @@ class UserProfile: NSObject {
     var gender = "female"
     var gender_pref = "male"
     var age: Int = 0
+    var dob: Date = Date()
     var profile_pic_url = ""
     var interests : Set = Set<String>()
     var peopleList:[Dictionary<String, Any>] = []
