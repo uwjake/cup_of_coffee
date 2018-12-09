@@ -1137,7 +1137,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qYD-pJ-DSK">
-                                <rect key="frame" x="130" y="176.5" width="115" height="314"/>
+                                <rect key="frame" x="128" y="176.5" width="119" height="314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hXJ-eV-M7L">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="314"/>
@@ -1205,7 +1205,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="CZz-B6-WHD">
-                                        <rect key="frame" x="50" y="0.0" width="65" height="314"/>
+                                        <rect key="frame" x="50" y="0.0" width="69" height="314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hiking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhO-7a-kjv">
                                                 <rect key="frame" x="0.0" y="0.0" width="48.5" height="34"/>
@@ -1243,8 +1243,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cudding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ila-Ij-FlY">
-                                                <rect key="frame" x="0.0" y="224" width="65" height="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuddling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ila-Ij-FlY">
+                                                <rect key="frame" x="0.0" y="224" width="69" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="YUT-uN-gTg"/>
                                                 </constraints>
