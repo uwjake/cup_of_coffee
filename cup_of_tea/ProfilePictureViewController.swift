@@ -23,7 +23,7 @@ class ProfilePictureViewController: UIViewController, UINavigationControllerDele
     
     @IBAction func chooseFromAlbumPressed(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            print("Button capture")
+//            print("Button capture")
             
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum;

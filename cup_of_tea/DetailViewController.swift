@@ -109,8 +109,11 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
             summaryLabel.text = detail["summary"] as? String
             ageLabel.text = "Age: \(detail["age"] as? Int ?? 0)"
             interestsLabel.text = "Interests: " + (detail["interests"] as? String ?? "")
-          
-            distanceLabel.text = "\(detail["distance"] as! Int) miles away"
+            if detail["distance"] == nil {
+                distanceLabel.isHidden = true
+            } else {
+                distanceLabel.text = "\(detail["distance"] as! Int) miles away"
+            }
 
             if let imagefromCache = MasterViewController.imageCache.object(forKey: detail["profile_picture"] as AnyObject) as? UIImage
             {

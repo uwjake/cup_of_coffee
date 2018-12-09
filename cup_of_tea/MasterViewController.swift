@@ -50,7 +50,11 @@ class MasterViewController: UITableViewController {
                                     //                        print("\(document.documentID) => \(document.data())")
                                     var person = document.data()
                                     let location = person["location"] as! Dictionary<String, Double>
-                                    person["distance"] = self.calDistance(lat: location["lat"]!, lng: location["lng"]!)
+                                    if person["location_visible"] as! Bool {
+                                        person["distance"] = self.calDistance(lat: location["lat"]!, lng: location["lng"]!)
+                                    } else {
+                                        person["distance"] = nil
+                                    }
                                     person["age"] = self.getAgeFromTimestamp(dob: person["dob"] as! Timestamp)
                                     UserProfile.sharedInstance.peopleList.append(person)
                                 }
@@ -191,8 +195,11 @@ class MasterViewController: UITableViewController {
             }
         cell.name?.text = objects[indexPath.row]["first_name"] as? String
         cell.age?.text = "\(objects[indexPath.row]["age"] as! Int)"
-       
-        cell.distance?.text = "\(objects[indexPath.row]["distance"]! as! Int) miles away"
+        if objects[indexPath.row]["distance"] == nil {
+            cell.distance?.text = ""
+        } else {
+            cell.distance?.text = "\(objects[indexPath.row]["distance"]! as! Int) miles away"
+        }
         cell.gender?.image = UIImage(named: objects[indexPath.row]["gender"] as? String ?? "gn")
         cell.accessoryType = .disclosureIndicator
 
