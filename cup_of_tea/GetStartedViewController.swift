@@ -11,6 +11,14 @@ import CoreLocation
 
 class GetStartedViewController: UIViewController {
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     let locationManager = CLLocationManager()
     var userInstance = UserProfile.sharedInstance
 
@@ -76,6 +84,10 @@ extension GetStartedViewController: CLLocationManagerDelegate {
             completionHandler(nil)
         }
     }
+    
+  
+
+    
 }
 
 extension UIViewController {

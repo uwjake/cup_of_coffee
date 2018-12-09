@@ -14,6 +14,7 @@
 		2310710421B3C070003B2E90 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310710321B3C070003B2E90 /* PersonTableViewCell.swift */; };
 		232890E321BC7D230057275C /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232890E221BC7D230057275C /* MyProfileViewController.swift */; };
 		2350D3BF21B9012800C911D2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2350D3BE21B9012800C911D2 /* Settings.bundle */; };
+		23919F0A21BCB38200C9DA06 /* SetUpNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23919F0921BCB38200C9DA06 /* SetUpNavigationController.swift */; };
 		239C783021AFB4A30033A51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C782F21AFB4A30033A51B /* AppDelegate.swift */; };
 		239C783221AFB4A30033A51B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C783121AFB4A30033A51B /* MasterViewController.swift */; };
 		239C783421AFB4A30033A51B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C783321AFB4A30033A51B /* DetailViewController.swift */; };
@@ -56,6 +57,7 @@
 		2310710321B3C070003B2E90 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		232890E221BC7D230057275C /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		2350D3BE21B9012800C911D2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		23919F0921BCB38200C9DA06 /* SetUpNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNavigationController.swift; sourceTree = "<group>"; };
 		239C782C21AFB4A30033A51B /* cup_of_tea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cup_of_tea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239C782F21AFB4A30033A51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		239C783121AFB4A30033A51B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				29155CDB21B8BFA900F86406 /* InterestsViewController.swift */,
 				2350D3BE21B9012800C911D2 /* Settings.bundle */,
 				232890E221BC7D230057275C /* MyProfileViewController.swift */,
+				23919F0921BCB38200C9DA06 /* SetUpNavigationController.swift */,
 			);
 			path = cup_of_tea;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				29155CDC21B8BFA900F86406 /* InterestsViewController.swift in Sources */,
 				2310710421B3C070003B2E90 /* PersonTableViewCell.swift in Sources */,
 				232890E321BC7D230057275C /* MyProfileViewController.swift in Sources */,
+				23919F0A21BCB38200C9DA06 /* SetUpNavigationController.swift in Sources */,
 				2300006D21B3824A00E1957B /* NameViewController.swift in Sources */,
 				239C783221AFB4A30033A51B /* MasterViewController.swift in Sources */,
 				29259A4121B24AA700BAA166 /* OrientationViewController.swift in Sources */,

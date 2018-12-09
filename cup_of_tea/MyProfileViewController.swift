@@ -30,7 +30,7 @@ class MyProfileViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.portrait //return the value as per the required orientation
+        return UIInterfaceOrientationMask.portrait
     }
     
     override var shouldAutorotate: Bool {
