@@ -109,11 +109,8 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
             summaryLabel.text = detail["summary"] as? String
             ageLabel.text = "Age: \(detail["age"] as? Int ?? 0)"
             interestsLabel.text = "Interests: " + (detail["interests"] as? String ?? "")
-            
-            let lat = (detail["location"]! as! Dictionary<String, Any>)["lat"] as! Double
-            let lng = (detail["location"]! as! Dictionary<String, Any>)["lng"] as! Double
-            let distance = calDistance(lat: lat, lng: lng)
-            distanceLabel.text = "\(distance)mils"
+          
+            distanceLabel.text = "\(detail["distance"] as! Int) miles away"
 
             if let imagefromCache = MasterViewController.imageCache.object(forKey: detail["profile_picture"] as AnyObject) as? UIImage
             {
@@ -152,12 +149,6 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
         }
     }
 
-    func calDistance(lat : Double, lng : Double) -> Int {
-        let myLocation = CLLocation(latitude: userInstance.lat, longitude: userInstance.lng)
-        let peopleLocation = CLLocation(latitude: lat, longitude: lng)
-        let distanceInMiles = myLocation.distance(from: peopleLocation)/1609.344
-        return Int(distanceInMiles)
-    }
 
 }
 

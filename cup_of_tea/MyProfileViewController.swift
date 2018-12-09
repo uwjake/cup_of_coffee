@@ -55,6 +55,7 @@ class MyProfileViewController: UIViewController {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     self.myProfileData = document.data() as! Dictionary<String, Any>
+                    UserProfile.sharedInstance.myProfileData = self.myProfileData
                     self.setUpMyProfile()
                 } else {
                     self.presentError()
@@ -82,6 +83,50 @@ class MyProfileViewController: UIViewController {
             genderPrefPic.image = UIImage(named: self.myProfileData["gender_pref"] as! String)
             interestsLabel.text = "Interests: \(self.myProfileData["interests"] as! String)"
             contactLabel.text = "Contact: \((self.myProfileData["contact_type"] as! String).lowercased()) \(self.myProfileData["userId"] as! String)"
+            
+            let url = self.myProfileData["profile_picture"] as! String
+            
+            if url != ""
+            {
+                if let imagefromCache = MasterViewController.imageCache.object(forKey: url as AnyObject) as? UIImage
+                {
+                    profilePic.image = imagefromCache
+                    
+                } else {
+                    profilePic.image = nil
+                    
+                    
+                    let urlURL = URL(string: (url))
+                    if urlURL != nil {
+                        
+                        URLSession.shared.dataTask(with: urlURL!, completionHandler: { (data, response, error) in
+                            if error != nil
+                            {
+                                //                        print(error.debugDescription)
+                                return
+                            }
+                            
+                            DispatchQueue.main.async {
+                                let imagetoCache = UIImage(data:data!)
+                                if imagetoCache != nil {
+                                    MasterViewController.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
+                                    self.profilePic.image = imagetoCache
+                                    
+                                } else {
+                                    //                                    print("url failed")
+//                                    profilePicimage = UIImage(named: "profile_picture_placeholder")
+                                }
+                            }
+                        }).resume()
+                    }
+                }
+            } else {
+                //                print("no profile picimgage")
+//                profilePic.image = UIImage(named: "profile_picture_placeholder")
+            }
+            
+            
+            
         }
     }
     

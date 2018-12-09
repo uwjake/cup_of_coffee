@@ -15,12 +15,16 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Dictionary<String, Any>]()
     static var imageCache = NSCache<AnyObject, AnyObject>()
-    var userGenderPref = UserProfile.sharedInstance.gender_pref
-    var userInstance = UserProfile.sharedInstance
     func getAgeFromTimestamp(dob: Timestamp)->Int {
         let today = Int64(NSDate().timeIntervalSince1970)
         let age = Int ( (today - dob.seconds) / (60*60*24*365) )
         return age
+    }
+    
+    func presentError() {
+        let alert = UIAlertController(title: "Failed to load data", message: "Possible reason: no Internet, our database is down.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     func loadData() {
           UserProfile.sharedInstance.peopleList = []
@@ -31,25 +35,36 @@ class MasterViewController: UITableViewController {
             let settings = db.settings
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
-            
-            db.collection("users").whereField("gender", isEqualTo: "female")
-                .getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        for document in querySnapshot!.documents {
-    //                        print("\(document.documentID) => \(document.data())")
-                            var person = document.data()
-                            person["age"] = self.getAgeFromTimestamp(dob: person["dob"] as! Timestamp)
-                            UserProfile.sharedInstance.peopleList.append(person)
-                        }
+            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? "2061582345"
+           
+            db.collection("users").document(myContact).getDocument { (document, error) in
+                if let document = document, document.exists {
+                    UserProfile.sharedInstance.myProfileData = document.data() as! Dictionary<String, Any>
+                    
+                    db.collection("users").whereField("gender", isEqualTo: UserProfile.sharedInstance.myProfileData["gender_pref"] as! String)
+                        .getDocuments() { (querySnapshot, err) in
+                            if let err = err {
+                                print("Error getting documents: \(err)")
+                            } else {
+                                for document in querySnapshot!.documents {
+                                    //                        print("\(document.documentID) => \(document.data())")
+                                    var person = document.data()
+                                    let location = person["location"] as! Dictionary<String, Double>
+                                    person["distance"] = self.calDistance(lat: location["lat"]!, lng: location["lng"]!)
+                                    person["age"] = self.getAgeFromTimestamp(dob: person["dob"] as! Timestamp)
+                                    UserProfile.sharedInstance.peopleList.append(person)
+                                }
+                            }
+                            self.objects = UserProfile.sharedInstance.peopleList
+                            self.tableView.reloadData()
+                            //                    print(self.objects)
                     }
-                    self.objects = UserProfile.sharedInstance.peopleList
-                    self.tableView.reloadData()
-//                    print(self.objects)
+                    
+                } else {
+                    self.presentError()
+                }
             }
-
-                self.tableView.reloadData()
+           
         }
 //        print("done loading")
 
@@ -176,11 +191,8 @@ class MasterViewController: UITableViewController {
             }
         cell.name?.text = objects[indexPath.row]["first_name"] as? String
         cell.age?.text = "\(objects[indexPath.row]["age"] as! Int)"
-        var location = objects[indexPath.row]["location"]! as! Dictionary<String, Any>
-        let lat = location["lat"] as! Double
-        let lng = location["lng"] as! Double
-        let distance = calDistance(lat: lat, lng: lng)
-        cell.distance?.text = "\(distance) miles away"
+       
+        cell.distance?.text = "\(objects[indexPath.row]["distance"]! as! Int) miles away"
         cell.gender?.image = UIImage(named: objects[indexPath.row]["gender"] as? String ?? "gn")
         cell.accessoryType = .disclosureIndicator
 
@@ -188,7 +200,8 @@ class MasterViewController: UITableViewController {
     }
     
     func calDistance(lat : Double, lng : Double) -> Int {
-        let myLocation = CLLocation(latitude: userInstance.lat, longitude: userInstance.lng)
+        let myGeoLocation = UserProfile.sharedInstance.myProfileData["location"] as! Dictionary<String, Double>
+        let myLocation = CLLocation(latitude: myGeoLocation["lat"]!, longitude: myGeoLocation["lng"]!)
         let peopleLocation = CLLocation(latitude: lat, longitude: lng)
         let distanceInMiles = myLocation.distance(from: peopleLocation)/1609.344
         return Int(distanceInMiles)

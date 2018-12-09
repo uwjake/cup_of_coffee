@@ -12,14 +12,16 @@ class UserProfile: NSObject {
    
     static let sharedInstance = UserProfile()
     
-    var firstName = ""
-    var lastName = ""
+    
+    var firstName = "J"
+    var lastName = "A"
     var lat: Double = 0
     var lng: Double = 0
-    var gender = ""
-    var gender_pref = ""
-    var age:Int? = nil
+    var gender = "female"
+    var gender_pref = "male"
+    var age: Int = 0
     var profile_pic_url = ""
     var interests : Set = Set<String>()
     var peopleList:[Dictionary<String, Any>] = []
+    var myProfileData:Dictionary<String, Any> = [:]
 }
