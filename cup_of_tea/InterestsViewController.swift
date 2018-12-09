@@ -17,7 +17,7 @@ class InterestsViewController: UIViewController {
     @IBOutlet weak var btnCheckBox4: UIButton!
     @IBOutlet weak var btnCheckBox5: UIButton!
     @IBOutlet weak var btnCheckBox6: UIButton!
-    let interestsList : Array<String> = ["Hiking", "Movie", "Eating", "Gaming", "Cudding", "Cooking"]
+    let interestsList : Array<String> = ["Hiking", "Movie", "Eating", "Gaming", "Cuddling", "Cooking"]
     var userInstance = UserProfile.sharedInstance
     
     override func viewDidLoad() {

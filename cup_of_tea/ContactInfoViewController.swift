@@ -74,7 +74,8 @@ class ContactInfoViewController: UIViewController {
                 userInstance.userId = emailTextView.text!
             }
         }
-        print("user name: \(UserProfile.sharedInstance.firstName)")
+        print("user first name: \(UserProfile.sharedInstance.firstName)")
+        print("user last name: \(UserProfile.sharedInstance.lastName)")
         print("user contact type: \(UserProfile.sharedInstance.contact_type)")
         print("user contact: \(UserProfile.sharedInstance.userId)")
     }
