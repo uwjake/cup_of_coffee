@@ -71,11 +71,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="94" translatesAutoresizingMaskIntoConstraints="NO" id="lcQ-5a-fcV">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="lcQ-5a-fcV">
                                                         <rect key="frame" x="20" y="297" width="307" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpl-YQ-Ghp">
-                                                                <rect key="frame" x="0.0" y="0.0" width="63" height="35"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="35"/>
                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -83,9 +83,6 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T04-he-eDL">
                                                                 <rect key="frame" x="157" y="0.0" width="150" height="35"/>
                                                                 <color key="backgroundColor" red="0.88337920979999995" green="0.58806087090000003" blue="0.3534217563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="150" id="rdH-7U-t9Q"/>
-                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
                                                                 <state key="normal" title="Navigate">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -447,6 +444,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzn-3I-EXY">
                                                 <rect key="frame" x="175" y="2" width="152" height="31"/>
+                                                <connections>
+                                                    <action selector="onLocationShareSwitchChanged:" destination="WhX-Bc-vFI" eventType="valueChanged" id="rqU-gh-JBq"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                         <constraints>
@@ -1137,7 +1137,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="fSD-8x-dtX">
-                                <rect key="frame" x="40" y="252" width="295" height="198"/>
+                                <rect key="frame" x="40" y="252" width="295" height="231"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="3pg-bd-pz2">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="34"/>
@@ -1194,12 +1194,11 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="7Vc-eD-LZ1">
-                                        <rect key="frame" x="0.0" y="164" width="295" height="34"/>
+                                        <rect key="frame" x="0.0" y="164" width="295" height="67"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEq-2S-6JR">
-                                                <rect key="frame" x="0.0" y="0.0" width="117" height="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Intro:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEq-2S-6JR">
+                                                <rect key="frame" x="0.0" y="0.0" width="117" height="67"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="0Mg-H5-Oyq"/>
                                                     <constraint firstAttribute="width" constant="117" id="cVa-e2-dyV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1207,13 +1206,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LfA-rO-KPM">
-                                                <rect key="frame" x="146" y="0.0" width="149" height="34"/>
+                                                <rect key="frame" x="146" y="0.0" width="149" height="67"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="149" id="9fU-aM-MGA"/>
+                                                    <constraint firstAttribute="height" constant="67" id="VZw-44-YNB"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                                 <connections>
                                                     <action selector="ageTextField:" destination="yZz-Fc-FKI" eventType="editingDidEnd" id="9bw-lV-895"/>
                                                 </connections>

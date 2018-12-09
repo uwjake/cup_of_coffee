@@ -37,8 +37,8 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
         } else if contactType == "PHONE" {
             if (MFMessageComposeViewController.canSendText()) {
                 let controller = MFMessageComposeViewController()
-                controller.body = "Message Body"
-                controller.recipients = ["234234"]
+                controller.body = "Hi, I'm \(UserProfile.sharedInstance.myProfileData["first_name"] ?? ""), wannt a cup of coffee?"
+                controller.recipients = [detail["userId"] as! String]
                 controller.messageComposeDelegate = self
                 self.present(controller, animated: true, completion: nil)
             }

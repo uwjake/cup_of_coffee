@@ -13,6 +13,7 @@ class MyProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.myContact = UserDefaults.standard.string(forKey: "my_contact") ?? "2061582345"
         loadData()
         // Do any additional setup after loading the view.
     }
@@ -26,7 +27,41 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var genderPrefPic: UIImageView!
     @IBOutlet weak var interestsLabel: UILabel!
     @IBOutlet weak var contactLabel: UILabel!
+    
+    var myContact = ""
+    
+    @IBAction func onLocationShareSwitchChanged(_ sender: UISwitch) {
+        let db = Firestore.firestore()
+        let isON = sender.isOn
+        DispatchQueue.main.async {
+            db.collection("users").document(self.myContact).updateData([
+                "location_visible": isON
+            ]) { err in
+                if err != nil {
+//                    print("Error updating document: \(err)")
+                    self.presentAlert("Error", "Location sharing not updated, please try again later.")
+                } else {
+                    //                    print("Document successfully updated")
+//                    var message = "Now your location is hidden from people."
+//                    if isON {
+//                        message = "Now people can see your location"
+//                    }
+//                    self.presentAlert("Location sharing setting updated", message)
+                }
+            }
+        }
+    }
     @IBAction func resetProfile(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Start over", message: "You sure want to start over?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.cancel, handler: goToGetStarted))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func goToGetStarted(alert: UIAlertAction!) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GetStartedViewController")
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -45,12 +80,12 @@ class MyProfileViewController: UIViewController {
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
             
-            print(UserDefaults.standard.value(forKey: "my_contact") ?? "")
-            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? ""
+//            print(UserDefaults.standard.value(forKey: "my_contact") ?? "")
+            
 
 //                print("My contact", myContact)
        
-            let docRef = db.collection("users").document(myContact)
+            let docRef = db.collection("users").document(self.myContact)
             
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
@@ -58,7 +93,7 @@ class MyProfileViewController: UIViewController {
                     UserProfile.sharedInstance.myProfileData = self.myProfileData
                     self.setUpMyProfile()
                 } else {
-                    self.presentError()
+                    self.presentAlert("Profile not found", "Cannot find your contact method in our database. Please try reseting your profile.")
                 }
             }
         }
@@ -136,8 +171,8 @@ class MyProfileViewController: UIViewController {
         return age
     }
     
-    func presentError() {
-        let alert = UIAlertController(title: "Profile not found", message: "Cannot find your contact method in our database. Please try reseting your profile.", preferredStyle: UIAlertController.Style.alert)
+    func presentAlert(_ title: String, _ message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
