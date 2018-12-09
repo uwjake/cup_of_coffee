@@ -77,11 +77,11 @@ class MyProfileViewController: UIViewController {
             let dayTimePeriodFormatter = DateFormatter()
             dayTimePeriodFormatter.dateFormat = "YYYY-MM-dd"
             let dateString = dayTimePeriodFormatter.string(from: date as Date)
-            dobLabel.text = dateString
+            dobLabel.text = "Dob: \(dateString)"
             genderPic.image = UIImage(named: self.myProfileData["gender"] as! String)
             genderPrefPic.image = UIImage(named: self.myProfileData["gender_pref"] as! String)
-            interestsLabel.text = (self.myProfileData["interests"] as! String)
-            contactLabel.text = "\((self.myProfileData["contact_type"] as! String).lowercased()) \(self.myProfileData["userId"] as! String)"
+            interestsLabel.text = "Interests: \(self.myProfileData["interests"] as! String)"
+            contactLabel.text = "Contact: \((self.myProfileData["contact_type"] as! String).lowercased()) \(self.myProfileData["userId"] as! String)"
         }
     }
     
