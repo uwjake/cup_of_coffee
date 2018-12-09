@@ -40,7 +40,6 @@ extension UIDatePicker {
     func set18YearValidation() {
         let currentDate: Date = Date()
         var calendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-        calendar.timeZone = TimeZone(identifier: "UTC")!
         var components: DateComponents = DateComponents()
         components.calendar = calendar
         components.year = -18

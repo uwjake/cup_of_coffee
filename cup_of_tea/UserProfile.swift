@@ -19,7 +19,7 @@ class UserProfile: NSObject {
     var lng: Double = 0
     var gender = "female"
     var gender_pref = "male"
-    var age: Int = 0
+    var summary: String = ""
     var dob: Date = Date()
     var profile_pic_url = ""
     var interests : Set = Set<String>()

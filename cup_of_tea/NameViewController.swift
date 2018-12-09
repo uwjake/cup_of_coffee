@@ -24,7 +24,7 @@ class NameViewController: UIViewController {
     }
     
     @IBAction func ageTextField(_ sender: UITextField) {
-         UserProfile.sharedInstance.age = Int(sender.text ?? "0")!
+         UserProfile.sharedInstance.summary = sender.text ?? ""
     }
     /*
     // MARK: - Navigation
