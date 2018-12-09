@@ -50,8 +50,15 @@ class MasterViewController: UITableViewController {
                                     //                        print("\(document.documentID) => \(document.data())")
                                     var person = document.data()
                                     let location = person["location"] as! Dictionary<String, Double>
-                                    if person["location_visible"] as! Bool {
-                                        person["distance"] = self.calDistance(lat: location["lat"]!, lng: location["lng"]!)
+                                    let locationVisible = person["location_visible"]
+                                    if locationVisible != nil {
+                                        let locationVBool = locationVisible as! Bool
+                                        if locationVBool {
+                                            person["distance"] = self.calDistance(lat: location["lat"]!, lng: location["lng"]!)
+                                        } else {
+                                            person["distance"] = nil
+                                        }
+                                        
                                     } else {
                                         person["distance"] = nil
                                     }
@@ -61,7 +68,7 @@ class MasterViewController: UITableViewController {
                             }
                             self.objects = UserProfile.sharedInstance.peopleList
                             self.tableView.reloadData()
-                            //                    print(self.objects)
+                        
                     }
                     
                 } else {
