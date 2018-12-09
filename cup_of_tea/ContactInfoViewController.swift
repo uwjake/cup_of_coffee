@@ -24,7 +24,6 @@ class ContactInfoViewController: UIViewController {
         super.viewDidLoad()
         setupBtnCheckBox(btnCheckBox: phoneBtn);
         setupBtnCheckBox(btnCheckBox: emailBtn);
-        // Do any additional setup after loading the view.
     }
     
     func setupBtnCheckBox(btnCheckBox : UIButton!) {

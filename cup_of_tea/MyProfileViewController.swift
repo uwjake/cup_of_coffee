@@ -15,7 +15,6 @@ class MyProfileViewController: UIViewController {
         super.viewDidLoad()
         self.myContact = UserDefaults.standard.string(forKey: "my_contact") ?? UserProfile.sharedInstance.userId
         loadData()
-        // Do any additional setup after loading the view.
     }
     var myProfileData: Dictionary<String, Any> = [:]
     @IBOutlet weak var profilePic: UIImageView!
@@ -159,9 +158,6 @@ class MyProfileViewController: UIViewController {
                 //                print("no profile picimgage")
 //                profilePic.image = UIImage(named: "profile_picture_placeholder")
             }
-            
-            
-            
         }
     }
     
@@ -176,15 +172,4 @@ class MyProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    
 }

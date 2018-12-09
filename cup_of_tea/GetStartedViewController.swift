@@ -30,10 +30,6 @@ class GetStartedViewController: UIViewController {
     
     @IBAction func BtnPressed(_ sender: Any) {
         locationManager.requestLocation()
-        // if not set up, run code below to set up screens
-        //                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        //                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MasterViewController")
-        //                self.present(nextViewController, animated:true, completion:nil)
     }
     
     /*
@@ -84,10 +80,6 @@ extension GetStartedViewController: CLLocationManagerDelegate {
             completionHandler(nil)
         }
     }
-    
-  
-
-    
 }
 
 extension UIViewController {
