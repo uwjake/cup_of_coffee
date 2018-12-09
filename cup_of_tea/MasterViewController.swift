@@ -35,7 +35,7 @@ class MasterViewController: UITableViewController {
             let settings = db.settings
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
-            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? "2061582345"
+            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? UserProfile.sharedInstance.userId
            
             db.collection("users").document(myContact).getDocument { (document, error) in
                 if let document = document, document.exists {
@@ -96,8 +96,6 @@ class MasterViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        uploadData()
       
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
@@ -209,44 +207,6 @@ class MasterViewController: UITableViewController {
         return Int(distanceInMiles)
     }
     
-    func uploadData() {
-        
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-        
-        let userInstance = UserProfile.sharedInstance
-
-        let docData: [String: Any] = [
-            "contact_type": userInstance.contact_type,
-            "userId": userInstance.userId,
-            "first_name": userInstance.firstName,
-            "last_name": userInstance.lastName,
-            "summary": userInstance.summary,
-            "gender": userInstance.gender,
-            "gender_pref": userInstance.gender_pref,
-            "dob": userInstance.dob,
-            "interests": setToString(set: userInstance.interests),
-            "profile_picture": userInstance.profile_pic_url,
-            "location": [
-                "lat": userInstance.lat,
-                "lng": userInstance.lng
-            ]
-        ]
-        db.collection("users").document(userInstance.userId).setData(docData) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")            }
-        }
-    }
-    
-    func setToString(set : Set<String>) -> String {
-        let array = Array(set)
-        let result : String = array.joined(separator: ", ")
-        return result
-    }
 }
 
 

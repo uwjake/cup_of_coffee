@@ -13,7 +13,7 @@ class MyProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.myContact = UserDefaults.standard.string(forKey: "my_contact") ?? "2061582345"
+        self.myContact = UserDefaults.standard.string(forKey: "my_contact") ?? UserProfile.sharedInstance.userId
         loadData()
         // Do any additional setup after loading the view.
     }

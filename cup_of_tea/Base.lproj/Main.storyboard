@@ -1133,6 +1133,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="nextBtnPressed:" destination="yEe-C1-jNy" eventType="touchUpInside" id="cB8-dO-25c"/>
                                     <segue destination="H1p-Uh-vWS" kind="presentation" id="yDn-nF-oii"/>
                                 </connections>
                             </button>
