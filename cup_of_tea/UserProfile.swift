@@ -17,6 +17,8 @@ class UserProfile: NSObject {
     var lastName = "A"
     var lat: Double = 0
     var lng: Double = 0
+    var contact_type = ""
+    var userId = ""
     var gender = "female"
     var gender_pref = "male"
     var summary: String = ""

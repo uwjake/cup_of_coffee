@@ -29,7 +29,6 @@ class InterestsViewController: UIViewController {
         setupBtnCheckBox(btnCheckBox: btnCheckBox6);
         print("user gender: \(UserProfile.sharedInstance.gender)")
         print("user gender pref: \(UserProfile.sharedInstance.gender_pref)")
-        print("user name: \(UserProfile.sharedInstance.firstName)")
     }
     
     func setupBtnCheckBox(btnCheckBox : UIButton!) {
