@@ -12,6 +12,7 @@ import CoreLocation
 class GetStartedViewController: UIViewController {
     
     let locationManager = CLLocationManager()
+    var userInstance = UserProfile.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +42,39 @@ class GetStartedViewController: UIViewController {
 extension GetStartedViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
-            print("The Location of user: \(lat),\(long)")
+            userInstance.lat = lat
+            userInstance.lng = long
+            print("The location of user: \(lat),\(long)")
+            lookUpCurrentLocation { geoLoc in
+                print(geoLoc?.locality ?? "unknown Geo location")
+            }
         } else {
             print("No coordinates")
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
+    }
+    func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?) -> Void ) {
+        // Use the last reported location.
+        if let lastLocation = self.locationManager.location {
+            let geocoder = CLGeocoder()
+            // Look up the location and pass it to the completion handler
+            geocoder.reverseGeocodeLocation(lastLocation, completionHandler: { (placemarks, error) in
+                if error == nil {
+                    let firstLocation = placemarks?[0]
+                    completionHandler(firstLocation)
+                }
+                else {
+                    // An error occurred during geocoding.
+                    completionHandler(nil)
+                }
+            })
+        }
+        else {
+            // No location was available.
+            completionHandler(nil)
+        }
     }
 }
 

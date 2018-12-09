@@ -14,6 +14,8 @@ class UserProfile: NSObject {
     
     var firstName = ""
     var lastName = ""
+    var lat: Double = 0
+    var lng: Double = 0
     var gender = ""
     var gender_pref = ""
     var age:Int? = nil

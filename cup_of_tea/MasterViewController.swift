@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import CoreLocation
 
 class MasterViewController: UITableViewController {
 
@@ -15,6 +16,7 @@ class MasterViewController: UITableViewController {
     var objects = [Dictionary<String, Any>]()
     static var imageCache = NSCache<AnyObject, AnyObject>()
     var userGenderPref = UserProfile.sharedInstance.gender_pref
+    var userInstance = UserProfile.sharedInstance
     func getAgeFromTimestamp(dob: Timestamp)->Int {
         let today = Int64(NSDate().timeIntervalSince1970)
         let age = Int ( (today - dob.seconds) / (60*60*24*365) )
@@ -174,11 +176,22 @@ class MasterViewController: UITableViewController {
             }
         cell.name?.text = objects[indexPath.row]["first_name"] as? String
         cell.age?.text = "\(objects[indexPath.row]["age"] as! Int)"
-        cell.distance?.text = "Distance: TODO"
+        var location = objects[indexPath.row]["location"]! as! Dictionary<String, Any>
+        let lat = location["lat"] as! Double
+        let lng = location["lng"] as! Double
+        let distance = calDistance(lat: lat, lng: lng)
+        cell.distance?.text = "\(distance) miles away"
         cell.gender?.image = UIImage(named: objects[indexPath.row]["gender"] as? String ?? "gn")
         cell.accessoryType = .disclosureIndicator
 
         return cell
+    }
+    
+    func calDistance(lat : Double, lng : Double) -> Int {
+        let myLocation = CLLocation(latitude: userInstance.lat, longitude: userInstance.lng)
+        let peopleLocation = CLLocation(latitude: lat, longitude: lng)
+        let distanceInMiles = myLocation.distance(from: peopleLocation)/1609.344
+        return Int(distanceInMiles)
     }
 }
 
