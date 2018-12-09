@@ -70,9 +70,11 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
     func setProfilePicHeight() {
         if UIDevice.current.orientation.isLandscape {
             profilePic.isHidden = true
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
             imgHeightConstraint.constant = 0
         } else {
             profilePic.isHidden = false
+             self.navigationItem.rightBarButtonItem?.isEnabled = true
             imgHeightConstraint.constant = CGFloat(PROFILE_PICTURE_HEIGHT)
         }
 

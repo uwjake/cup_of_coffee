@@ -29,46 +29,66 @@ class MyProfileViewController: UIViewController {
     @IBAction func resetProfile(_ sender: UIButton) {
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait //return the value as per the required orientation
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     func loadData() {
-        
         //        print("start loading")
-        DispatchQueue.main.async
-            {
-                let db = Firestore.firestore()
-                let settings = db.settings
-                settings.areTimestampsInSnapshotsEnabled = true
-                db.settings = settings
-                
-                if  let array = UserDefaults.standard.object(forKey:"my_contact") as? String {
-                        print("asr", array)
-                }
-        
-                let myContact = "asdf"
-                print(UserDefaults.standard.object(forKey: "my_contact"))
-                
-                if myContact != nil || myContact != "" {
-                    print("My contact", myContact)
-               
-                    let docRef = db.collection("users").document(myContact ?? "d")
-                
-                docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        self.myProfileData = document.data() as! Dictionary<String, Any>
-                        print(self.myProfileData)
-                    } else {
-                        self.presentError()
-                    }
-                }
-                    
-                } else {
-                   self.presentError()
-                }
+        DispatchQueue.main.async {
+            let db = Firestore.firestore()
+            let settings = db.settings
+            settings.areTimestampsInSnapshotsEnabled = true
+            db.settings = settings
+            
+            print(UserDefaults.standard.value(forKey: "my_contact") ?? "")
+            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? ""
 
-                
-              
+//                print("My contact", myContact)
+       
+            let docRef = db.collection("users").document(myContact)
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    self.myProfileData = document.data() as! Dictionary<String, Any>
+                    self.setUpMyProfile()
+                } else {
+                    self.presentError()
+                }
+            }
         }
-        //        print("done loading")
-        
+    }
+    
+    func setUpMyProfile() {
+        if profilePic != nil {
+            nameLabel.text = "\(myProfileData["first_name"] ?? "") \(myProfileData["last_name"] ?? "")"
+            let summaryText = (myProfileData["summary"] ?? "no summary") as! String
+            if summaryText == "" {
+                summaryLabel.text = "No Intro"
+            } else {
+                summaryLabel.text = summaryText
+            }
+            
+            let date = NSDate(timeIntervalSince1970: TimeInterval((self.myProfileData["dob"] as! Timestamp).seconds))
+            let dayTimePeriodFormatter = DateFormatter()
+            dayTimePeriodFormatter.dateFormat = "YYYY-MM-dd"
+            let dateString = dayTimePeriodFormatter.string(from: date as Date)
+            dobLabel.text = dateString
+            genderPic.image = UIImage(named: self.myProfileData["gender"] as! String)
+            genderPrefPic.image = UIImage(named: self.myProfileData["gender_pref"] as! String)
+            interestsLabel.text = (self.myProfileData["interests"] as! String)
+            contactLabel.text = "\((self.myProfileData["contact_type"] as! String).lowercased()) \(self.myProfileData["userId"] as! String)"
+        }
+    }
+    
+    func getAgeFromTimestamp(dob: Timestamp)->Int {
+        let today = Int64(NSDate().timeIntervalSince1970)
+        let age = Int ( (today - dob.seconds) / (60*60*24*365) )
+        return age
     }
     
     func presentError() {
@@ -86,4 +106,5 @@ class MyProfileViewController: UIViewController {
     }
     */
 
+    
 }
