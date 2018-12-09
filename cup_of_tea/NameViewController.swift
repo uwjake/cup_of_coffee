@@ -19,12 +19,13 @@ class NameViewController: UIViewController {
     @IBAction func firstNameTextfield(_ sender: UITextField) {
         UserProfile.sharedInstance.firstName = sender.text ?? ""
     }
+    
     @IBAction func lastNameTextField(_ sender: UITextField) {
-        UserProfile.sharedInstance.firstName = sender.text ?? ""
+        UserProfile.sharedInstance.lastName = sender.text ?? ""
     }
     
     @IBAction func ageTextField(_ sender: UITextField) {
-         UserProfile.sharedInstance.summary = sender.text ?? ""
+        UserProfile.sharedInstance.summary = sender.text ?? ""
     }
     /*
     // MARK: - Navigation
@@ -35,5 +36,4 @@ class NameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

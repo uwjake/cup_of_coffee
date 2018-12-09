@@ -16,24 +16,12 @@ class DOBViewController: UIViewController {
         super.viewDidLoad()
       
         datePicker.set18YearValidation()
-        // Do any additional setup after loading the view.
     }
     
-
     @IBAction func onDateChanged(_ sender: UIDatePicker) {
         UserProfile.sharedInstance.dob = sender.date
         print(UserProfile.sharedInstance.dob)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension UIDatePicker {

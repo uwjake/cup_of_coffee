@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class InterestsViewController: UIViewController {
 
@@ -16,7 +17,7 @@ class InterestsViewController: UIViewController {
     @IBOutlet weak var btnCheckBox4: UIButton!
     @IBOutlet weak var btnCheckBox5: UIButton!
     @IBOutlet weak var btnCheckBox6: UIButton!
-    let interestsList : Array<String> = ["Hiking", "Movie", "Eating", "Gaming", "Cudding", "Cooking"]
+    let interestsList : Array<String> = ["Hiking", "Movie", "Eating", "Gaming", "Cuddling", "Cooking"]
     var userInstance = UserProfile.sharedInstance
     
     override func viewDidLoad() {
@@ -29,7 +30,6 @@ class InterestsViewController: UIViewController {
         setupBtnCheckBox(btnCheckBox: btnCheckBox6);
         print("user gender: \(UserProfile.sharedInstance.gender)")
         print("user gender pref: \(UserProfile.sharedInstance.gender_pref)")
-        print("user name: \(UserProfile.sharedInstance.firstName)")
     }
     
     func setupBtnCheckBox(btnCheckBox : UIButton!) {
@@ -85,6 +85,11 @@ class InterestsViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func nextBtnPressed(_ sender: Any) {
+        uploadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -104,14 +109,40 @@ class InterestsViewController: UIViewController {
         print("User interests: \(UserProfile.sharedInstance.interests)")
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func uploadData() {
+        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        
+        let docData: [String: Any] = [
+            "contact_type": userInstance.contact_type,
+            "userId": userInstance.userId,
+            "first_name": userInstance.firstName,
+            "last_name": userInstance.lastName,
+            "summary": userInstance.summary,
+            "gender": userInstance.gender,
+            "gender_pref": userInstance.gender_pref,
+            "dob": userInstance.dob,
+            "interests": setToString(set: userInstance.interests),
+            "profile_picture": userInstance.profile_pic_url,
+            "location": [
+                "lat": userInstance.lat,
+                "lng": userInstance.lng
+            ]
+        ]
+        db.collection("users").document(userInstance.userId).setData(docData) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")            }
+        }
     }
-    */
-
+    
+    func setToString(set : Set<String>) -> String {
+        let array = Array(set)
+        let result : String = array.joined(separator: ", ")
+        return result
+    }
 }

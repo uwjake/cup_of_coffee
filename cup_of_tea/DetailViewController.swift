@@ -18,14 +18,11 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
     
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
-    
     @IBOutlet weak var genderPic: UIImageView!
     @IBOutlet weak var interestsLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
-    
     @IBOutlet weak var distanceLabel: UILabel!
-    
     @IBOutlet weak var connectButton: UIButton!
     
     @IBAction func connectButton(_ sender: UIButton) {
@@ -44,6 +41,7 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
             }
         }
     }
+    
     @IBAction func navigateButton(_ sender: UIButton) {
         let latitude: CLLocationDegrees = (detail["location"] as! Dictionary<String, Double>)["lat"]!
         let longitude: CLLocationDegrees = (detail["location"] as! Dictionary<String, Double>)["lng"]!
@@ -78,9 +76,7 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
              self.navigationItem.rightBarButtonItem?.isEnabled = true
             imgHeightConstraint.constant = CGFloat(PROFILE_PICTURE_HEIGHT)
         }
-
     }
-    
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         //... handle sms screen actions
@@ -90,7 +86,6 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
-    
     
     func configureView() {
 
@@ -136,9 +131,6 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
             }
         }
         
-   
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

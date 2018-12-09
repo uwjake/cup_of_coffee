@@ -35,7 +35,7 @@ class MasterViewController: UITableViewController {
             let settings = db.settings
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
-            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? "2061582345"
+            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? UserProfile.sharedInstance.userId
            
             db.collection("users").document(myContact).getDocument { (document, error) in
                 if let document = document, document.exists {
@@ -213,5 +213,5 @@ class MasterViewController: UITableViewController {
         let distanceInMiles = myLocation.distance(from: peopleLocation)/1609.344
         return Int(distanceInMiles)
     }
+    
 }
-
