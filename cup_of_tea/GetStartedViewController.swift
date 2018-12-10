@@ -24,12 +24,26 @@ class GetStartedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let sv = UIViewController.displaySpinner(onView: self.view)
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        
+//        let group = DispatchGroup()
+//        group.enter()
+        
+        // avoid deadlocks by not using .main queue here
+        DispatchQueue.main.async {
+            self.locationManager.requestLocation()
+            UIViewController.removeSpinner(spinner: sv)
+        }
+        
+//        group.wait()
+        
+        
     }
     
     @IBAction func BtnPressed(_ sender: Any) {
-        locationManager.requestLocation()
+        
     }
     
     /*
@@ -44,6 +58,7 @@ class GetStartedViewController: UIViewController {
 }
 
 extension GetStartedViewController: CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
             UserProfile.sharedInstance.lat = lat

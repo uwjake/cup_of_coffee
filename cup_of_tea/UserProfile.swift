@@ -17,10 +17,10 @@ class UserProfile: NSObject {
     var lastName = ""
     var lat: Double = 0
     var lng: Double = 0
-    var contact_type = ""
+    var contact_type = "PHONE"
     var userId = ""
-    var gender = "female"
-    var gender_pref = "male"
+    var gender = "other"
+    var gender_pref = "other"
     var summary: String = ""
     var dob: Date = Date()
     var profile_pic_url = ""

@@ -113,12 +113,42 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
                 distanceLabel.text = "\(detail["distance"] as! Int) miles away"
             }
 
-            if let imagefromCache = MasterViewController.imageCache.object(forKey: detail["profile_picture"] as AnyObject) as? UIImage
+            let url = detail["profile_picture"] as! String
+            
+            if let imagefromCache = MasterViewController.imageCache.object(forKey: url as AnyObject) as? UIImage
             {
                 profilePic.image = imagefromCache
+                
             } else {
-                profilePic.image = UIImage(named: "profile_picture_placeholder")
+               profilePic.image = nil
+                
+                
+                let urlURL = URL(string: (url))
+                if urlURL != nil {
+                    
+                    URLSession.shared.dataTask(with: urlURL!, completionHandler: { (data, response, error) in
+                        if error != nil
+                        {
+                            //                        print(error.debugDescription)
+                            return
+                        }
+                        
+                        DispatchQueue.main.async {
+                            let imagetoCache = UIImage(data:data!)
+                            if imagetoCache != nil {
+                                MasterViewController.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
+                                self.profilePic.image = imagetoCache
+                                
+                            } else {
+                                //                                    print("url failed")
+                                self.profilePic.image = UIImage(named: "profile_picture_placeholder")
+                            }
+                        }
+                    }).resume()
+                }
             }
+            
+            
             
             let contactType = detail["contact_type"] as! String
             if contactType == "EMAIL" {
