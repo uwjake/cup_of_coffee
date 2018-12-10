@@ -59,6 +59,8 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
         mapItem.openInMaps(launchOptions: options)
     }
     
+    @IBOutlet weak var navigateButton: UIButton!
+    
     var detail: Dictionary<String, Any> = [:]
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if profilePic != nil {
@@ -106,6 +108,7 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
             interestsLabel.text = "Interests: " + (detail["interests"] as? String ?? "")
             if detail["distance"] == nil {
                 distanceLabel.isHidden = true
+                navigateButton.isHidden = true
             } else {
                 distanceLabel.text = "\(detail["distance"] as! Int) miles away"
             }
