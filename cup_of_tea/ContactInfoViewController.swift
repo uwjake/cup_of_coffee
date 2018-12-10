@@ -22,6 +22,7 @@ class ContactInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         setupBtnCheckBox(btnCheckBox: phoneBtn);
         setupBtnCheckBox(btnCheckBox: emailBtn);
     }

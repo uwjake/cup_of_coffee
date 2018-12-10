@@ -88,6 +88,7 @@ class InterestsViewController: UIViewController {
     
     @IBAction func nextBtnPressed(_ sender: Any) {
         uploadData()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,7 +111,7 @@ class InterestsViewController: UIViewController {
     }
     
     func uploadData() {
-        
+        let sv = UIViewController.displaySpinner(onView: self.view)
         let db = Firestore.firestore()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
@@ -134,12 +135,22 @@ class InterestsViewController: UIViewController {
         ]
         db.collection("users").document(userInstance.userId).setData(docData) { err in
             if let err = err {
+                let alert = UIAlertController(title: "Failed to load data", message: "Possible reason: no Internet, our database is down.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 print("Error writing document: \(err)")
             } else {
+                self.goToList()
+                UserDefaults.standard.set(UserProfile.sharedInstance.userId, forKey: "my_contact")
+                UIViewController.removeSpinner(spinner: sv)
                 print("Document successfully written!")
                 
             }
         }
+    }
+    
+    func goToList() {
+        performSegue(withIdentifier: "setUpDone", sender:self)
     }
     
     func setToString(set : Set<String>) -> String {
@@ -147,4 +158,27 @@ class InterestsViewController: UIViewController {
         let result : String = array.joined(separator: ", ")
         return result
     }
+}
+
+extension UIViewController {
+class func displaySpinner(onView : UIView) -> UIView {
+    let spinnerView = UIView.init(frame: onView.bounds)
+    spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+    let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+    ai.startAnimating()
+    ai.center = spinnerView.center
+    
+    DispatchQueue.main.async {
+        spinnerView.addSubview(ai)
+        onView.addSubview(spinnerView)
+    }
+    
+    return spinnerView
+}
+
+class func removeSpinner(spinner :UIView) {
+    DispatchQueue.main.async {
+        spinner.removeFromSuperview()
+    }
+}
 }

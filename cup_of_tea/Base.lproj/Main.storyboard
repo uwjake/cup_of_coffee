@@ -1125,7 +1125,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="nextBtnPressed:" destination="yEe-C1-jNy" eventType="touchUpInside" id="cB8-dO-25c"/>
-                                    <segue destination="H1p-Uh-vWS" kind="presentation" id="yDn-nF-oii"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qYD-pJ-DSK">
@@ -1276,6 +1275,7 @@
                         <outlet property="btnCheckBox4" destination="Idn-Ge-gd4" id="zLd-Is-ZcX"/>
                         <outlet property="btnCheckBox5" destination="QhK-Ip-7HC" id="Pfi-QE-iWa"/>
                         <outlet property="btnCheckBox6" destination="cuI-YX-5NJ" id="YKn-nz-rI3"/>
+                        <segue destination="H1p-Uh-vWS" kind="presentation" identifier="setUpDone" id="Xnb-pj-38q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A73-UQ-oju" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1451,6 +1451,6 @@
         <image name="profile_picture_placeholder" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Zx-XU-HpF"/>
+        <segue reference="Xnb-pj-38q"/>
     </inferredMetricsTieBreakers>
 </document>
