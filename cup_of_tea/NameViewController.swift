@@ -13,7 +13,7 @@ class NameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
+        print("loc", UserProfile.sharedInstance.lat,  UserProfile.sharedInstance.lng)
         // Do any additional setup after loading the view.
     }
     

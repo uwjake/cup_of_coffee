@@ -30,6 +30,7 @@ class InterestsViewController: UIViewController {
         setupBtnCheckBox(btnCheckBox: btnCheckBox6);
         print("user gender: \(UserProfile.sharedInstance.gender)")
         print("user gender pref: \(UserProfile.sharedInstance.gender_pref)")
+        print("data", UserProfile.sharedInstance)
     }
     
     func setupBtnCheckBox(btnCheckBox : UIButton!) {
@@ -140,9 +141,10 @@ class InterestsViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 print("Error writing document: \(err)")
             } else {
-                self.goToList()
+                UserDefaults.standard.set(true, forKey: "set_up")
                 UserDefaults.standard.set(UserProfile.sharedInstance.userId, forKey: "my_contact")
                 UIViewController.removeSpinner(spinner: sv)
+                self.goToList()
                 print("Document successfully written!")
                 
             }

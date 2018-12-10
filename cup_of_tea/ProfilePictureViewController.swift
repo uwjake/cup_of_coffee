@@ -13,6 +13,7 @@ class ProfilePictureViewController: UIViewController, UINavigationControllerDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     var selectedImage: UIImage? = nil
     var imagePicker = UIImagePickerController()
@@ -37,13 +38,15 @@ class ProfilePictureViewController: UIViewController, UINavigationControllerDele
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         
-        profileImageView.image = selectedImage
+       
         
+        let sv = UIViewController.displaySpinner(onView: self.view)
+
         let storageRef = Storage.storage().reference()
         
         // Data in memory
         var data = NSData()
-        data = selectedImage.jpegData(compressionQuality: 0.05)! as NSData
+        data = selectedImage.jpegData(compressionQuality: 0.03)! as NSData
         let userId = UserProfile.sharedInstance.userId
         // Create a reference to the file you want to upload
         let docRef = storageRef.child("profiles_ios/\(userId).jpg")
@@ -55,11 +58,19 @@ class ProfilePictureViewController: UIViewController, UINavigationControllerDele
             docRef.downloadURL { (url, error) in
                 guard let downloadURL = url else {
                     // Uh-oh, an error occurred!
+                    self.profileImageView.image = selectedImage
+                    let alert = UIAlertController(title: "Failed to upload image", message: "Possible reason: no Internet, our database is down.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                     return
                 }
+                 UIViewController.removeSpinner(spinner: sv)
+                self.profileImageView.image = selectedImage
                 UserProfile.sharedInstance.profile_pic_url = "\(downloadURL)"
             }
         }
+        
+       
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)

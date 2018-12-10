@@ -14,10 +14,10 @@ class ContactInfoViewController: UIViewController {
     @IBOutlet weak var emailTextView: UITextField!
     @IBOutlet weak var phoneBtn: UIButton!
     @IBOutlet weak var emailBtn: UIButton!
-    var DEFAULT_PHONE = "2061582345"
-    var DEFAULT_EMAIL = "shwih@gmail.com"
+    var DEFAULT_PHONE = "2061111test"
+    var DEFAULT_EMAIL = "test@gmail.com"
     var userInstance = UserProfile.sharedInstance
-    var phonePressed = false
+    var phonePressed = true
     var emailPressed = false
     
     override func viewDidLoad() {
@@ -28,7 +28,12 @@ class ContactInfoViewController: UIViewController {
     }
     
     func setupBtnCheckBox(btnCheckBox : UIButton!) {
-        btnCheckBox.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
+        if btnCheckBox == phoneBtn {
+            btnCheckBox.setImage(UIImage(named:"Checkmark"), for: .normal)
+        } else {
+             btnCheckBox.setImage(UIImage(named:"Checkmarkempty"), for: .normal)
+        }
+       
     }
     
     @IBAction func phoneBtnPressed(_ sender: Any) {

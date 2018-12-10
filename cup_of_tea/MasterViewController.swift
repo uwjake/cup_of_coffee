@@ -27,6 +27,7 @@ class MasterViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     func loadData() {
+        let sv = UIViewController.displaySpinner(onView: self.view)
           UserProfile.sharedInstance.peopleList = []
 //        print("start loading")
         DispatchQueue.main.async
@@ -64,6 +65,8 @@ class MasterViewController: UITableViewController {
                                     }
                                     person["age"] = self.getAgeFromTimestamp(dob: person["dob"] as! Timestamp)
                                     UserProfile.sharedInstance.peopleList.append(person)
+                                    UIViewController.removeSpinner(spinner: sv)
+
                                 }
                             }
                             self.objects = UserProfile.sharedInstance.peopleList
@@ -72,6 +75,7 @@ class MasterViewController: UITableViewController {
                     }
                     
                 } else {
+                    UIViewController.removeSpinner(spinner: sv)
                     self.presentError()
                 }
             }
@@ -81,14 +85,14 @@ class MasterViewController: UITableViewController {
 
     }
   
-    override func viewDidAppear(_ animated: Bool) {
-        
+//    override func viewDidAppear(_ animated: Bool) {
+    
         // if not set up, run code below to set up screens
 //        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 //        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GetStartedViewController")
 //        self.present(nextViewController, animated:true, completion:nil)
         
-    }
+//    }
     
     
     @objc func refresh(_ refreshControl: UIRefreshControl) {

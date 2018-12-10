@@ -20,7 +20,7 @@ class GetStartedViewController: UIViewController {
     }
     
     let locationManager = CLLocationManager()
-    var userInstance = UserProfile.sharedInstance
+//    var userInstance = UserProfile.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +46,11 @@ class GetStartedViewController: UIViewController {
 extension GetStartedViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
-            userInstance.lat = lat
-            userInstance.lng = long
+            UserProfile.sharedInstance.lat = lat
+            UserProfile.sharedInstance.lng = long
             print("The location of user: \(lat),\(long)")
             lookUpCurrentLocation { geoLoc in
-                print(geoLoc?.locality ?? "unknown Geo location")
+                print("loc in get started", geoLoc?.locality ?? "unknown Geo location")
             }
         } else {
             print("No coordinates")
