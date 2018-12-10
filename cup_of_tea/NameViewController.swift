@@ -9,16 +9,28 @@
 import UIKit
 
 class NameViewController: UIViewController {
-
+    
+    @IBOutlet weak var nextButton: UIButton!
+    var originalButtonColor: UIColor? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        originalButtonColor = nextButton.backgroundColor ?? UIColor.orange
+        nextButton.backgroundColor = UIColor.gray
+        
         print("loc", UserProfile.sharedInstance.lat,  UserProfile.sharedInstance.lng)
         // Do any additional setup after loading the view.
     }
     
     @IBAction func firstNameTextfield(_ sender: UITextField) {
         UserProfile.sharedInstance.firstName = sender.text ?? ""
+        if sender.text ?? "" == "" {
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = UIColor.gray
+        } else {
+            nextButton.isEnabled = true
+            nextButton.backgroundColor = originalButtonColor
+        }
     }
     
     @IBAction func lastNameTextField(_ sender: UITextField) {

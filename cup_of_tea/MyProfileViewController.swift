@@ -73,7 +73,9 @@ class MyProfileViewController: UIViewController {
     
     func loadData() {
         //        print("start loading")
+        let sv = UIViewController.displaySpinner(onView: self.view)
         DispatchQueue.main.async {
+            
             let db = Firestore.firestore()
             let settings = db.settings
             settings.areTimestampsInSnapshotsEnabled = true
@@ -91,8 +93,10 @@ class MyProfileViewController: UIViewController {
                     self.myProfileData = document.data() as! Dictionary<String, Any>
                     UserProfile.sharedInstance.myProfileData = self.myProfileData
                     self.setUpMyProfile()
+                    UIViewController.removeSpinner(spinner: sv)
                 } else {
                     self.presentAlert("Profile not found", "Cannot find your contact method in our database. Please try reseting your profile.")
+                    UIViewController.removeSpinner(spinner: sv)
                 }
             }
         }

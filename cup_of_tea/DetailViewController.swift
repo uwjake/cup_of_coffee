@@ -104,6 +104,11 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
             genderPic.image = UIImage(named: detail["gender"] as! String)
            
             summaryLabel.text = detail["summary"] as? String
+            
+           
+            summaryLabel.lineBreakMode = .byWordWrapping
+            summaryLabel.numberOfLines = 0
+            
             ageLabel.text = "Age: \(detail["age"] as? Int ?? 0)"
             interestsLabel.text = "Interests: " + (detail["interests"] as? String ?? "")
             if detail["distance"] == nil {
@@ -120,7 +125,7 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
                 profilePic.image = imagefromCache
                 
             } else {
-               profilePic.image = nil
+//               profilePic.image = nil
                 
                 
                 let urlURL = URL(string: (url))
