@@ -28,7 +28,7 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
     @IBAction func connectButton(_ sender: UIButton) {
         let contactType = detail["contact_type"] as! String
         if contactType == "EMAIL" {
-            let email = detail["contact_value"] as! String
+            let email = detail["userId"] as! String
             let url = URL(string: "mailto:\(email)")
             UIApplication.shared.open(url!)
         } else if contactType == "PHONE" {
