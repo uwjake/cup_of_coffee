@@ -44,15 +44,15 @@ class ProfilePictureViewController: UIViewController, UINavigationControllerDele
         // Data in memory
         var data = NSData()
         data = selectedImage.jpegData(compressionQuality: 0.05)! as NSData
-        
+        let userId = UserProfile.sharedInstance.userId
         // Create a reference to the file you want to upload
-        let riversRef = storageRef.child("images/rivers.jpeg")
+        let docRef = storageRef.child("profiles_ios/\(userId).jpg")
         
         // Upload the file to the path "images/rivers.jpg"
-        _ = riversRef.putData(data as Data, metadata: nil) { (metadata, error) in
+        _ = docRef.putData(data as Data, metadata: nil) { (metadata, error) in
 
            
-            riversRef.downloadURL { (url, error) in
+            docRef.downloadURL { (url, error) in
                 guard let downloadURL = url else {
                     // Uh-oh, an error occurred!
                     return

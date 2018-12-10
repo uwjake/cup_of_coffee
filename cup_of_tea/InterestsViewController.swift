@@ -136,7 +136,9 @@ class InterestsViewController: UIViewController {
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
-                print("Document successfully written!")            }
+                print("Document successfully written!")
+                
+            }
         }
     }
     

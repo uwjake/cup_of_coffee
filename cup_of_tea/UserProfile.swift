@@ -13,8 +13,8 @@ class UserProfile: NSObject {
     static let sharedInstance = UserProfile()
     
     
-    var firstName = "J"
-    var lastName = "A"
+    var firstName = ""
+    var lastName = ""
     var lat: Double = 0
     var lng: Double = 0
     var contact_type = ""

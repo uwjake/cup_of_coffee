@@ -35,7 +35,7 @@ class MasterViewController: UITableViewController {
             let settings = db.settings
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
-            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? "cannot get contact"
+            let myContact = UserDefaults.standard.string(forKey: "my_contact") ?? ""
            
             db.collection("users").document(myContact).getDocument { (document, error) in
                 if let document = document, document.exists {
