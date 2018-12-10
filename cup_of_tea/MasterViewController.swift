@@ -43,32 +43,35 @@ class MasterViewController: UITableViewController {
                     UserProfile.sharedInstance.myProfileData = document.data() as! Dictionary<String, Any>
                     
                     db.collection("users").whereField("gender", isEqualTo: UserProfile.sharedInstance.myProfileData["gender_pref"] as! String)
+                        .whereField("gender_pref", isEqualTo: UserProfile.sharedInstance.myProfileData["gender"] as! String)
                         .getDocuments() { (querySnapshot, err) in
                             if let err = err {
                                 print("Error getting documents: \(err)")
                             } else {
                                 for document in querySnapshot!.documents {
+                                    
                                     //                        print("\(document.documentID) => \(document.data())")
                                     var person = document.data()
-                                    let location = person["location"] as! Dictionary<String, Double>
-                                    let locationVisible = person["location_visible"]
-                                    if locationVisible != nil {
-                                        let locationVBool = locationVisible as! Bool
-                                        if locationVBool {
-                                            person["distance"] = self.calDistance(lat: location["lat"]!, lng: location["lng"]!)
+                                    if person["userId"] as! String != UserProfile.sharedInstance.myProfileData["userId"] as! String{
+                                        let location = person["location"] as! Dictionary<String, Double>
+                                        let locationVisible = person["location_visible"]
+                                        if locationVisible != nil {
+                                            let locationVBool = locationVisible as! Bool
+                                            if locationVBool {
+                                                person["distance"] = self.calDistance(lat: location["lat"]!, lng: location["lng"]!)
+                                            } else {
+                                                person["distance"] = nil
+                                            }
+                                            
                                         } else {
                                             person["distance"] = nil
                                         }
-                                        
-                                    } else {
-                                        person["distance"] = nil
+                                        person["age"] = self.getAgeFromTimestamp(dob: person["dob"] as! Timestamp)
+                                        UserProfile.sharedInstance.peopleList.append(person)
                                     }
-                                    person["age"] = self.getAgeFromTimestamp(dob: person["dob"] as! Timestamp)
-                                    UserProfile.sharedInstance.peopleList.append(person)
-                                    UIViewController.removeSpinner(spinner: sv)
-
                                 }
                             }
+                            UIViewController.removeSpinner(spinner: sv)
                             self.objects = UserProfile.sharedInstance.peopleList
                             self.tableView.reloadData()
                         
