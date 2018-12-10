@@ -1445,6 +1445,9 @@
                         <viewLayoutGuide key="safeArea" id="NHT-4d-HJp"/>
                     </view>
                     <navigationItem key="navigationItem" title="Set up" id="PLL-JN-oAG"/>
+                    <connections>
+                        <outlet property="nextButton" destination="Wn2-W0-Dhu" id="c4j-tT-NdM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s69-wZ-grU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
