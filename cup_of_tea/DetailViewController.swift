@@ -143,11 +143,14 @@ class DetailViewController: UIViewController, MFMessageComposeViewControllerDele
                             if imagetoCache != nil {
                                 MasterViewController.imageCache.setObject(imagetoCache!, forKey: url as AnyObject)
                                 self.profilePic.image = imagetoCache
+                                self.setProfilePicHeight()
                                 
                             } else {
                                 //                                    print("url failed")
                                 self.profilePic.image = UIImage(named: "profile_picture_placeholder")
+                                self.setProfilePicHeight()
                             }
+                            
                         }
                     }).resume()
                 }
