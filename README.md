@@ -1,5 +1,8 @@
 # cup_of_coffee
 
+## Demo slides
+[https://github.com/uwjake/cup_of_coffee/blob/master/Final%20project.pdf](https://github.com/uwjake/cup_of_coffee/blob/master/Final%20project.pdf)
+
 ## Core user stories
 
 - As a user, I want to take a picture of me and include my areas of interest/social media so that I can make my profile attractive [Done]
