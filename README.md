@@ -1,4 +1,4 @@
-# cup_of_coffee
+# Cup of Coffee
 
 ## Demo video
 [https://uwjake.github.io/timeline](https://uwjake.github.io/timeline)
