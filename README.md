@@ -1,6 +1,6 @@
 # Cup of Coffee
 
-## Demo video
+## Demo video (Android and iOS)
 [https://uwjake.github.io/timeline](https://uwjake.github.io/timeline)
 
 ## Demo slides
