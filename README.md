@@ -1,5 +1,8 @@
 # cup_of_coffee
 
+## Demo video
+[https://uwjake.github.io/timeline](https://uwjake.github.io/timeline)
+
 ## Demo slides
 [https://github.com/uwjake/cup_of_coffee/blob/master/Final%20project.pdf](https://github.com/uwjake/cup_of_coffee/blob/master/Final%20project.pdf)
 
