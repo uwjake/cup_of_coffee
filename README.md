@@ -1,7 +1,11 @@
 # Cup of Coffee
 
-## Demo video (Android and iOS)
+## Demo video (iOS and Android)
 [https://uwjake.github.io/timeline](https://uwjake.github.io/timeline)
+
+Or:
+
+[![YouTube Demo Video](https://img.youtube.com/vi/3cB3bl6wHlI/0.jpg)](https://www.youtube.com/watch?v=3cB3bl6wHlI)
 
 ## Demo slides
 [https://github.com/uwjake/cup_of_coffee/blob/master/Final%20project.pdf](https://github.com/uwjake/cup_of_coffee/blob/master/Final%20project.pdf)
